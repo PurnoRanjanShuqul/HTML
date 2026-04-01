@@ -3,1669 +3,1660 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML Master Dashboard Full Pro Version</title>
+  <title>Complete HTML Learning Dashboard • Bangla Notes</title>
   <style>
     :root{
-      --bg:#f8fafc;
-      --sidebar:#0f172a;
-      --sidebar2:#111827;
-      --primary:#2563eb;
-      --danger:#dc2626;
-      --warning:#d97706;
-      --success:#16a34a;
-      --danger-soft:#fee2e2;
-      --warning-soft:#fef3c7;
-      --success-soft:#dcfce7;
-      --text:#0f172a;
-      --muted:#475569;
-      --card:#ffffff;
-      --border:#e2e8f0;
-      --shadow:0 10px 25px rgba(15, 23, 42, 0.08);
+      --bg-a:#fffaf3;
+      --bg-b:#eef8ff;
+      --panel:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --shadow:0 12px 28px rgba(17,24,39,.08);
+
+      --brand:#7c3aed;
+      --brand-2:#06b6d4;
+      --brand-soft:#ede9fe;
+
+      --most:#059669;
+      --most-bg:#d1fae5;
+
+      --mid:#d97706;
+      --mid-bg:#fef3c7;
+
+      --less:#dc2626;
+      --less-bg:#fee2e2;
+
+      --code:#0f172a;
+      --code-line:#1e293b;
+      --radius:18px;
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
-      font-family:"Segoe UI", Arial, sans-serif;
-      background:linear-gradient(135deg,#eff6ff,#f8fafc,#ecfeff);
+      font-family:Segoe UI, Roboto, Arial, sans-serif;
+      background:linear-gradient(135deg,var(--bg-a),var(--bg-b));
       color:var(--text);
+      line-height:1.65;
     }
 
-    .app{
-      display:grid;
-      grid-template-columns:320px 1fr;
-      min-height:100vh;
+    .container{
+      width:min(1480px,94%);
+      margin:auto;
     }
 
-    .sidebar{
-      background:linear-gradient(180deg,var(--sidebar),var(--sidebar2));
+    header{padding:26px 0 18px}
+
+    .hero{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
       color:#fff;
-      padding:24px 18px;
-      position:sticky;
-      top:0;
-      height:100vh;
-      overflow:auto;
-    }
-
-    .brand{
-      border-bottom:1px solid rgba(255,255,255,.1);
-      padding-bottom:18px;
-      margin-bottom:18px;
-    }
-
-    .brand h1{
-      font-size:26px;
-      line-height:1.3;
-    }
-
-    .brand p{
-      margin-top:8px;
-      color:#cbd5e1;
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .nav-title{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:#93c5fd;
-      margin:18px 0 10px;
-    }
-
-    .nav a{
-      display:block;
-      text-decoration:none;
-      color:#e5e7eb;
-      background:rgba(255,255,255,.04);
-      padding:11px 13px;
-      border-radius:12px;
-      margin-bottom:8px;
-      transition:.25s;
-      font-size:14px;
-    }
-
-    .nav a:hover{
-      background:rgba(37,99,235,.2);
-      transform:translateX(4px);
-      color:#fff;
-    }
-
-    .side-note{
-      margin-top:18px;
-      padding:14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.05);
-      color:#cbd5e1;
-      font-size:13px;
-      line-height:1.7;
-      border:1px solid rgba(255,255,255,.08);
-    }
-
-    .main{padding:28px;}
-
-    .topbar{
-      background:rgba(255,255,255,.88);
-      border:1px solid rgba(255,255,255,.8);
+      border-radius:26px;
+      padding:34px;
       box-shadow:var(--shadow);
-      border-radius:22px;
-      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before,.hero::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      background:rgba(255,255,255,.12);
+    }
+    .hero::before{width:220px;height:220px;top:-60px;right:-50px}
+    .hero::after{width:140px;height:140px;left:-20px;bottom:-25px}
+
+    .hero h1{
+      font-size:clamp(28px,4.8vw,50px);
+      margin-bottom:10px;
+      line-height:1.15;
+    }
+    .hero p{
+      max-width:1000px;
+      opacity:.96;
+      font-size:1.03rem;
+    }
+
+    .hero-actions{
       display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
+      gap:12px;
       flex-wrap:wrap;
-      margin-bottom:24px;
+      margin-top:18px;
     }
-
-    .topbar h2{
-      font-size:30px;
-      margin-bottom:8px;
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:11px 18px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.2s ease;
     }
+    .btn.light{background:#fff;color:#4c1d95}
+    .btn.outline{border:2px solid rgba(255,255,255,.45);color:#fff}
+    .btn:hover{transform:translateY(-2px)}
 
-    .topbar p{
-      color:var(--muted);
-      line-height:1.8;
-      max-width:860px;
-    }
-
-    .tools{
+    .legend{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      margin-top:18px;
     }
-
-    .search{
-      width:340px;
-      max-width:100%;
-      padding:12px 14px;
-      border:1px solid #cbd5e1;
-      border-radius:12px;
-      outline:none;
-      font-size:14px;
-    }
-
-    .btn{
-      border:none;
-      background:var(--primary);
-      color:#fff;
-      padding:12px 16px;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:600;
-      transition:.25s;
-    }
-
-    .btn:hover{background:#1d4ed8;}
-
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      margin-bottom:28px;
-    }
-
-    .stat{
-      background:var(--card);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      border-radius:18px;
-      padding:18px;
-    }
-
-    .stat h4{
-      color:#64748b;
-      font-size:14px;
-      margin-bottom:10px;
-    }
-
-    .stat .big{
-      font-size:24px;
+    .legend span{
+      padding:8px 12px;
+      border-radius:999px;
       font-weight:700;
+      font-size:.9rem;
+    }
+    .most{background:var(--most-bg);color:var(--most)}
+    .mid{background:var(--mid-bg);color:var(--mid)}
+    .less{background:var(--less-bg);color:var(--less)}
+
+    .quick-nav{
+      margin:22px 0 8px;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .quick-nav h2{
+      margin-bottom:12px;
+      font-size:1.15rem;
+    }
+    .quick-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .quick-links a{
+      text-decoration:none;
+      color:#374151;
+      background:#fff;
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.2s;
+      font-size:.94rem;
+    }
+    .quick-links a:hover{
+      background:var(--brand-soft);
+      color:var(--brand);
+      border-color:#c4b5fd;
     }
 
     .section{
-      margin-bottom:38px;
+      margin:34px 0;
     }
-
     .section-head{
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      margin-bottom:12px;
+      align-items:flex-end;
+      gap:20px;
       flex-wrap:wrap;
+      margin-bottom:16px;
     }
-
-    .section-head h3{
-      font-size:28px;
+    .section-head h2{
+      font-size:clamp(22px,4vw,32px);
+      color:#111827;
     }
-
-    .desc{
+    .section-head p{
+      max-width:900px;
       color:var(--muted);
-      line-height:1.8;
-      margin-bottom:18px;
     }
-
-    .badge{
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
-    }
-
-    .essential{background:var(--danger-soft);color:var(--danger);}
-    .important{background:var(--warning-soft);color:var(--warning);}
-    .advanced{background:var(--success-soft);color:var(--success);}
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-      align-items:start;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:20px;
     }
 
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      border-radius:20px;
-      overflow:hidden;
-      align-self:start;
-    }
-
-    .card-top{
-      padding:16px 18px;
-      background:linear-gradient(135deg,#eff6ff,#f8fafc);
-      border-bottom:1px solid #dbeafe;
-    }
-
-    .priority,.usage{
-      display:inline-block;
-      margin-bottom:10px;
-      margin-right:8px;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:700;
-    }
-
-    .red{background:var(--danger-soft);color:var(--danger);}
-    .yellow{background:var(--warning-soft);color:var(--warning);}
-    .green{background:var(--success-soft);color:var(--success);}
-    .most{background:#dbeafe;color:#1d4ed8;}
-    .mid{background:#ede9fe;color:#6d28d9;}
-    .less{background:#ecfccb;color:#3f6212;}
-
-    .card-top h4{
-      font-size:21px;
-      margin-bottom:6px;
-    }
-
-    .mini{
-      color:#64748b;
-      font-size:14px;
-    }
-
-    .card-body{
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
-    .block h5{
-      color:var(--primary);
-      font-size:14px;
-      margin-bottom:6px;
-    }
-
-    .block p,.block li{
-      color:#334155;
-      line-height:1.78;
-      font-size:15px;
-    }
-
-    .block ul,.block ol{
-      padding-left:18px;
-    }
-
-    pre{
-      background:#0f172a;
-      color:#e2e8f0;
-      padding:14px;
-      border-radius:14px;
-      overflow:auto;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .roadmap{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:20px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:20px;
+      transition:.22s ease;
     }
-
-    .roadmap ol{padding-left:20px;}
-    .roadmap li{
+    .card:hover{transform:translateY(-4px)}
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.8rem;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+    .card h3{
+      font-size:1.12rem;
       margin-bottom:10px;
-      line-height:1.8;
-      color:#334155;
+      color:#111827;
+    }
+    .theory{
+      color:#374151;
+      font-size:.96rem;
+      margin-bottom:14px;
+    }
+    .example-label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:800;
+      color:#4b5563;
+    }
+    pre{
+      background:var(--code);
+      color:#e2e8f0;
+      border:1px solid var(--code-line);
+      border-radius:14px;
+      padding:14px;
+      overflow:auto;
+      font-size:.9rem;
+    }
+    code{font-family:Consolas, Monaco, monospace}
+
+    .note{
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color:#9a3412;
+      border-radius:14px;
+      padding:14px 16px;
+      margin-top:18px;
+      font-size:.95rem;
     }
 
     .footer{
+      margin:48px 0 28px;
       text-align:center;
-      color:#64748b;
-      padding:18px 0 8px;
-      font-size:14px;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
-    .hide{display:none !important;}
-
-    @media (max-width:1100px){
-      .stats{grid-template-columns:repeat(2,1fr);}
-      .grid{grid-template-columns:1fr;}
-    }
-
-    @media (max-width:900px){
-      .app{grid-template-columns:1fr;}
-      .sidebar{height:auto;position:relative;}
-    }
-
-    @media (max-width:600px){
-      .stats{grid-template-columns:1fr;}
-      .topbar h2{font-size:24px;}
-    }
-
-    @media print{
-      .sidebar,.tools{display:none !important;}
-      .app{display:block;}
-      .main{padding:0;}
-      .card,.topbar,.stat,.roadmap{box-shadow:none;}
-      body{background:#fff;}
+    @media (max-width:720px){
+      .hero{padding:24px}
+      .card{padding:18px}
     }
   </style>
 </head>
 <body>
-<div class="app">
-  <aside class="sidebar">
-    <div class="brand">
-      <h1>HTML Master Dashboard<br>Full Pro Version</h1>
-      <p>HTML expert হওয়ার জন্য complete structured dashboard — essential, important, advanced, Bangla note সহ</p>
-    </div>
-
-    <div class="nav-title">Navigation</div>
-    <nav class="nav">
-      <a href="#overview">Overview</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#document-structure">Document Structure</a>
-      <a href="#text-content">Text & Content</a>
-      <a href="#links-media">Links & Media Basics</a>
-      <a href="#lists">Lists</a>
-      <a href="#tables">Tables</a>
-      <a href="#forms">Forms & Inputs</a>
-      <a href="#attributes">Attributes</a>
-      <a href="#semantic">Semantic HTML</a>
-      <a href="#accessibility">Accessibility</a>
-      <a href="#seo">SEO Basics</a>
-      <a href="#advanced-tags">Advanced Useful Tags</a>
-      <a href="#best-practices">Best Practices</a>
-      <a href="#projects">Practice Projects</a>
-      <a href="#interview">Interview Revision</a>
-    </nav>
-
-    <div class="side-note">
-      <strong>Usage Indicator:</strong><br>
-      Most Used = প্রায় সব project-এ লাগে<br>
-      Mid Use = strong developer হতে জানা দরকার<br>
-      Less Use = rare/advanced but useful
-    </div>
-  </aside>
-
-  <main class="main">
-    <section class="topbar" id="overview">
-      <div>
-        <h2>HTML Master Dashboard Full Pro Version</h2>
+  <div class="container">
+    <header>
+      <div class="hero">
+        <h1>Complete HTML Learning Dashboard</h1>
         <p>
-          এই dashboard-এ HTML-এর major topics logically সাজানো হয়েছে।
-          Beginner থেকে expert level পর্যন্ত essential roadmap, tag groups, attributes, forms,
-          semantic HTML, accessibility, SEO, advanced useful tags — সবকিছু category-wise দেওয়া আছে।
+          এই ড্যাশবোর্ডটি এমনভাবে তৈরি করা হয়েছে যাতে একজন একদম নতুন HTML learner থেকে শুরু করে একজন advanced learner বা reference খুঁজতে থাকা developer—দুজনেই উপকৃত হয়। এখানে HTML-এর fundamentals, document structure, text content, inline semantic tags, lists, links, media, tables, forms, semantic layout, embedded content, interactive elements, template/web component related tag, global attributes, accessibility, entities, URL scheme, obsolete tags এবং best practices সবকিছু section-wise card আকারে সাজানো হয়েছে।
         </p>
+        <div class="hero-actions">
+          <a href="#fundamentals" class="btn light">শুরু করো</a>
+          <a href="#best-practices" class="btn outline">Best Practices</a>
+        </div>
+        <div class="legend">
+          <span class="most">Most Use = সবচেয়ে বেশি ব্যবহৃত</span>
+          <span class="mid">Mid Use = মাঝারি ব্যবহৃত</span>
+          <span class="less">Less Use = কম ব্যবহৃত / বিশেষ কাজে</span>
+        </div>
       </div>
-      <div class="tools">
-        <input id="searchInput" class="search" type="text" placeholder="Search... যেমন: form, semantic, alt, table, article">
-        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+
+      <div class="quick-nav">
+        <h2>Quick Navigation</h2>
+        <div class="quick-links">
+          <a href="#fundamentals">Fundamentals</a>
+          <a href="#structure">Structure</a>
+          <a href="#metadata">Metadata</a>
+          <a href="#scripting">Scripting</a>
+          <a href="#text-content">Text Content</a>
+          <a href="#inline-semantics">Inline Semantics</a>
+          <a href="#links">Links</a>
+          <a href="#lists">Lists</a>
+          <a href="#images-graphics">Images & Graphics</a>
+          <a href="#audio-video">Audio & Video</a>
+          <a href="#tables">Tables</a>
+          <a href="#forms">Forms</a>
+          <a href="#semantic-layout">Semantic Layout</a>
+          <a href="#embedded">Embedded</a>
+          <a href="#interactive">Interactive</a>
+          <a href="#templates">Template</a>
+          <a href="#global-attributes">Global Attributes</a>
+          <a href="#accessibility">Accessibility</a>
+          <a href="#entities">Entities</a>
+          <a href="#obsolete">Obsolete</a>
+          <a href="#best-practices">Best Practices</a>
+        </div>
       </div>
-    </section>
+    </header>
 
-    <section class="stats">
-      <div class="stat"><h4>Foundation</h4><div class="big">Structure + Text</div></div>
-      <div class="stat"><h4>Core</h4><div class="big">Links + Forms</div></div>
-      <div class="stat"><h4>Pro Level</h4><div class="big">Semantic + SEO</div></div>
-      <div class="stat"><h4>Goal</h4><div class="big">HTML Expert</div></div>
-    </section>
-
-    <section class="section" id="roadmap">
+    <!-- 1 FUNDAMENTALS -->
+    <section id="fundamentals" class="section">
       <div class="section-head">
-        <h3>HTML Learning Roadmap</h3>
-        <span class="badge essential">Start Here</span>
-      </div>
-      <p class="desc">HTML expert হতে হলে নিচের order follow করলে learning much clearer হবে।</p>
-      <div class="roadmap">
-        <ol>
-          <li>Document Structure</li>
-          <li>Text & Content Tags</li>
-          <li>Links & Images</li>
-          <li>Lists & Tables</li>
-          <li>Forms & Input System</li>
-          <li>Attributes</li>
-          <li>Semantic HTML</li>
-          <li>Accessibility Basics</li>
-          <li>SEO Basics</li>
-          <li>Advanced Useful Tags</li>
-          <li>Practice Projects + Interview Revision</li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section" id="document-structure">
-      <div class="section-head">
-        <h3>Document Structure</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>1. HTML Fundamentals</h2>
+          <p>HTML কী, tag কী, element, attribute, nesting, comments, empty elements, block vs inline—এসব মৌলিক ধারণা না বুঝলে বাকি সবকিছু কঠিন লাগবে।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="doctype html html head body title meta link script">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>1. Basic HTML Document Structure</h4>
-            <div class="mini">doctype, html, head, body, title, meta, link, script</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                একটি HTML page-এর মূল skeleton এই structure দিয়ে তৈরি হয়।
-                Browser document কীভাবে interpret করবে, page title কী হবে,
-                metadata কোথায় থাকবে, visible content কোথায় থাকবে — সবকিছু এই foundation-এর উপর দাঁড়ায়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                প্রতিটি HTML file-এর শুরুতে এই structure ব্যবহার করা হয়। এটা ছাড়া clean page setup হয় না।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                অনেক beginner body/head order গুলিয়ে ফেলে বা meta charset দিতে ভুলে যায়।
-                শুরু থেকেই complete structure habit করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;My Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Hello&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>HTML কী?</h3>
+          <p class="theory">
+            HTML-এর পূর্ণরূপ HyperText Markup Language। এটি ওয়েবপেজের structure তৈরি করার ভাষা। কোনো heading কোথায় থাকবে, paragraph কোথায় থাকবে, link, image, table, form, button, section—এসব HTML দিয়ে define করা হয়। HTML একা styling বা complex logic দেয় না; styling-এর জন্য CSS এবং behavior/interactivity-এর জন্য JavaScript ব্যবহৃত হয়। তবে HTML হলো পুরো web development-এর foundation।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;h1&gt;আমার ওয়েবসাইট&lt;/h1&gt;
+&lt;p&gt;এটি HTML দিয়ে তৈরি structure।&lt;/p&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="head body difference metadata visible content">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>2. Head vs Body</h4>
-            <div class="mini">metadata vs visible content</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                <strong>head</strong> অংশে metadata থাকে — title, meta, CSS links, scripts reference।
-                <strong>body</strong> অংশে user যেটা browser-এ দেখে, সেই visible content থাকে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Page setup-related info head-এ, actual content body-তে রাখো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Visible text বা image কখনো head-এর ভিতরে দিও না। Head setup-এর জন্য, body content-এর জন্য।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;head&gt;
-  &lt;title&gt;Portfolio&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-  &lt;h1&gt;Welcome&lt;/h1&gt;
-&lt;/body&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="text-content">
-      <div class="section-head">
-        <h3>Text & Content</h3>
-        <span class="badge essential">Must Master</span>
-      </div>
-      <div class="grid">
-        <div class="card searchable" data-search="h1 h2 h3 h4 h5 h6 headings p paragraph strong em">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>3. Headings, Paragraph, Strong, Em</h4>
-            <div class="mini">h1-h6, p, strong, em</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Headings document hierarchy তৈরি করে, paragraph readable text group করে,
-                strong important meaning দেয়, em emphasis দেয়।
-                শুধু style না, semantic meaning-ও এখানে important।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Blog, article, landing page, card content — সব জায়গায় heading ও paragraph লাগে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Random heading level jump কোরো না। h1 → h2 → h3 logical order maintain করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
-&lt;p&gt;This is &lt;strong&gt;important&lt;/strong&gt; text.&lt;/p&gt;
-&lt;p&gt;I &lt;em&gt;really&lt;/em&gt; like HTML.&lt;/p&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Tag, Element, Content</h3>
+          <p class="theory">
+            HTML-এ tag হলো markup syntax যেমন &lt;p&gt; বা &lt;div&gt;। Element সাধারণত opening tag, content এবং closing tag-এর পুরো অংশকে বোঝায়। Content element-এর ভিতরের লেখা বা nested child হতে পারে। উদাহরণ: &lt;p&gt;Hello&lt;/p&gt; এখানে p হলো tag, পুরো অংশটি paragraph element, আর Hello হলো content।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;আমি একটি paragraph element&lt;/p&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="div span br hr inline block">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>4. Div, Span, Br, Hr</h4>
-            <div class="mini">containers and line/separator tags</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                <strong>div</strong> block-level container, <strong>span</strong> inline container।
-                <strong>br</strong> line break দেয়, <strong>hr</strong> section separator দেয়।
-                এগুলো layout এবং text grouping-এ খুব common।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Div দিয়ে section group করো, span দিয়ে text-এর ছোট অংশ target করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                সবকিছু div দিয়ে ভরিয়ে ফেলো না। যেখানে semantic tag দরকার, সেখানে semantic tag use করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;div&gt;
-  &lt;p&gt;My favorite color is &lt;span&gt;blue&lt;/span&gt;.&lt;/p&gt;
-  &lt;hr&gt;
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Attribute</h3>
+          <p class="theory">
+            Attribute element-কে অতিরিক্ত তথ্য দেয়। যেমন link-এর গন্তব্য href, image path src, form field নাম name, CSS target করার জন্য class, unique identify করার জন্য id। Attribute সবসময় opening tag-এর ভিতরে লেখা হয়। Full stack development-এ HTML attribute খুবই গুরুত্বপূর্ণ কারণ backend data submission, JavaScript targeting, accessibility—সবকিছুতে এর বড় ভূমিকা আছে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;a href="https://example.com" target="_blank"&gt;Visit&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Nesting</h3>
+          <p class="theory">
+            একটি element-এর ভিতরে আরেকটি element রাখাকে nesting বলে। তবে nesting সবসময় সঠিকভাবে করতে হয়। Parent element-এর ভিতরে child element থাকবে এবং closing order ঠিক রাখতে হবে। ভুল nesting browser-এ unexpected behavior তৈরি করতে পারে এবং HTML validation error দেয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;div&gt;
+  &lt;p&gt;এখানে &lt;strong&gt;গুরুত্বপূর্ণ&lt;/strong&gt; লেখা আছে।&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-            </div>
-          </div>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>Comment</h3>
+          <p class="theory">
+            Comment ব্যবহার করা হয় developer note রাখার জন্য। এটি browser-এ দেখা যায় না। Project বড় হলে comment অনেক সাহায্য করে। তবে খুব obvious জিনিসে unnecessary comment না দিয়ে meaningful note লিখাই ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;!-- Header section starts here --&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>Empty / Void Elements</h3>
+          <p class="theory">
+            কিছু HTML element-এর closing tag থাকে না। যেমন &lt;br&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;input&gt;। এগুলোকে void element বলা হয়। এগুলো content wrap করে না, বরং নিজে নিজেই কাজ সম্পন্ন করে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;img src="photo.jpg" alt="ছবি"&gt;
+&lt;br&gt;
+&lt;hr&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Block vs Inline Elements</h3>
+          <p class="theory">
+            Block element সাধারণত নতুন line থেকে শুরু হয় এবং পুরো width নেয়, যেমন div, p, section, h1। Inline element একই line-এর মধ্যে থাকে, যেমন span, a, strong, em। CSS শেখার আগে এই পার্থক্য জানা খুব গুরুত্বপূর্ণ, কারণ layout behavior বোঝার ভিত্তি এটি।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;div&gt;আমি block element&lt;/div&gt;
+&lt;span&gt;আমি inline element&lt;/span&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>Case Sensitivity & Best Syntax</h3>
+          <p class="theory">
+            HTML tag name technically case-insensitive হলেও modern practice হলো lowercase ব্যবহার করা। কারণ এতে code consistent থাকে এবং XHTML/XML বা tooling-এর সাথে কাজ করাও সহজ হয়। Attribute value quotation-এ লেখা, proper nesting, meaningful naming—এসব clean code-এর অংশ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;section class="hero-banner"&gt;...&lt;/section&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="links-media">
+    <!-- 2 STRUCTURE -->
+    <section id="structure" class="section">
       <div class="section-head">
-        <h3>Links & Media Basics</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>2. Document Structure</h2>
+          <p>একটি HTML file-এর standard structure কীভাবে তৈরি হয়, তা এখানে দেখানো হয়েছে।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="a href anchor links">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>5. Anchor Tag</h4>
-            <div class="mini">a, href</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Anchor tag hyperlink তৈরি করে। Website navigation, external website, section jump,
-                email link, downloadable file — সবকিছুর জন্য anchor essential।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Menu links, footer links, buttons-as-links, internal page navigation — everywhere।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Link target দেওয়ার জন্য href use হয়, src না। এটা beginner-দের common mistake।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;a href="https://example.com"&gt;Visit Site&lt;/a&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;!DOCTYPE html&gt;</h3>
+          <p class="theory">
+            Document type declaration browser-কে জানায় যে page HTML5 standard অনুসরণ করছে। এটি না থাকলে browser quirks mode-এ যেতে পারে, ফলে rendering সমস্যা হতে পারে। সব modern HTML file-এর শুরুতেই এটি থাকা উচিত।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="img src alt image media">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>6. Image Tag</h4>
-            <div class="mini">img, src, alt</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Image add করার জন্য img use হয়। src file path দেয়, alt image describe করে।
-                Alt accessibility এবং SEO — দুইটার জন্যই very important।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Logo, profile photo, product image, banner, illustration—সব media image use case-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                img tag-এ href ব্যবহার করো না। আর meaningful alt text দিতে ভুলবে না।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;img src="photo.jpg" alt="Student learning HTML"&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;html&gt;</h3>
+          <p class="theory">
+            পুরো document-এর root element হলো html। সাধারণত lang attribute দেওয়া হয় যাতে browser ও assistive technology page-এর ভাষা বুঝতে পারে। SEO ও accessibility-এর জন্য এটি খুবই উপকারী।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;html lang="bn"&gt;...&lt;/html&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;head&gt;</h3>
+          <p class="theory">
+            head অংশে metadata থাকে যা browser, search engine, social preview, CSS/JS loading, charset, responsive behavior ইত্যাদির জন্য প্রয়োজন। ব্যবহারকারী সাধারণত head-এর content সরাসরি page-এ দেখে না।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;head&gt;
+  &lt;title&gt;আমার সাইট&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;body&gt;</h3>
+          <p class="theory">
+            body-এর মধ্যে page-এর visible content থাকে। যেমন heading, paragraph, images, buttons, forms, tables, sections, cards ইত্যাদি। ব্রাউজারে user যা দেখে, তার বেশিরভাগই body-এর content।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;body&gt;
+  &lt;h1&gt;স্বাগতম&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="lists">
+    <!-- 3 METADATA -->
+    <section id="metadata" class="section">
       <div class="section-head">
-        <h3>Lists</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>3. Metadata & Head Elements</h2>
+          <p>SEO, encoding, responsive design, external resource linking—এসবের মূল জায়গা হলো head section।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="ul ol li list ordered unordered">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>7. Ordered & Unordered Lists</h4>
-            <div class="mini">ul, ol, li</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                List structured item group দেখানোর সবচেয়ে simple semantic way।
-                Unordered list bullet-based, ordered list number-based।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Menu, features, steps, task list, requirements list — সবখানে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                List item সবসময় li-এর ভিতরে রাখো। ul বা ol-এর direct plain text লিখো না।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;ol&gt;
-  &lt;li&gt;Learn HTML&lt;/li&gt;
-  &lt;li&gt;Practice Daily&lt;/li&gt;
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;title&gt;</h3>
+          <p class="theory">
+            Browser tab-এ title দেখা যায় এবং search engine result-এও এর ভূমিকা রয়েছে। প্রতিটি page-এর জন্য unique, meaningful title থাকা উচিত। খুব ছোট বা খুব generic title না হওয়াই ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;title&gt;Complete HTML Dashboard&lt;/title&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;meta charset&gt;</h3>
+          <p class="theory">
+            Character encoding define করতে charset ব্যবহার হয়। সাধারণত UTF-8 ব্যবহৃত হয় কারণ এটি বাংলা, ইংরেজি, special symbols—বেশিরভাগ character support করে। বাংলা content দেখাতে UTF-8 খুব গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;meta name="viewport"&gt;</h3>
+          <p class="theory">
+            Responsive design-এর জন্য viewport meta tag অপরিহার্য। এটি mobile browser-কে বলে page width device-width অনুযায়ী scale করতে। এটি না থাকলে responsive layout ভেঙে যেতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;meta name="description"&gt;</h3>
+          <p class="theory">
+            Search engine snippet-এর জন্য page description দিতে meta description ব্যবহার করা হয়। এটি সরাসরি ranking guarantee করে না, কিন্তু click-through rate উন্নত করতে পারে। Blog, landing page, docs page—সবখানে useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;meta name="description" content="বাংলায় HTML শেখার পূর্ণ ড্যাশবোর্ড"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;link&gt;</h3>
+          <p class="theory">
+            External CSS file, favicon, font, preconnect এবং related metadata link করতে link tag ব্যবহার হয়। CSS file যুক্ত করার জন্য এটি খুব common। এটি void element।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;style&gt;</h3>
+          <p class="theory">
+            Internal CSS লেখার জন্য style tag ব্যবহার হয়। ছোট project, demo page বা quick prototype-এ useful। তবে বড় project-এ external stylesheet ব্যবহার করাই maintainable।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;style&gt;
+  body { font-family: Arial; }
+&lt;/style&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;base&gt;</h3>
+          <p class="theory">
+            সব relative URL-এর জন্য একটি base URL define করতে base tag ব্যবহৃত হয়। এটি খুব বেশি common নয়, তবে কিছু special setup-এ কাজে লাগে। ভুলভাবে ব্যবহার করলে link behavior confusion তৈরি করতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;base href="https://example.com/"&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 SCRIPTING -->
+    <section id="scripting" class="section">
+      <div class="section-head">
+        <div>
+          <h2>4. Scripting</h2>
+          <p>JavaScript যুক্ত করা, script loading control করা এবং JavaScript বন্ধ থাকলে fallback message দেখানো—এসব scripting section-এর অংশ।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;script&gt;</h3>
+          <p class="theory">
+            JavaScript file যুক্ত করা বা inline JavaScript লেখার জন্য script tag ব্যবহার করা হয়। এটি frontend interactivity-এর মূল মাধ্যম। Script body-এর শেষে রাখলে DOM load হওয়ার পর execute হয়, তবে defer attribute ব্যবহার করাও modern best practice।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;script src="app.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>async এবং defer</h3>
+          <p class="theory">
+            External script load behavior control করতে async এবং defer ব্যবহৃত হয়। async script download হয়ে ready হলেই execute হয়, ফলে execution order নিশ্চিত থাকে না। defer script HTML parsing শেষ হলে execute হয় এবং order maintain করে। বেশিরভাগ app script-এর জন্য defer বেশি উপযোগী।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;script src="app.js" defer&gt;&lt;/script&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>type="module"</h3>
+          <p class="theory">
+            Modern JavaScript module ব্যবহার করতে script-এ type="module" দেওয়া হয়। এতে import/export syntax ব্যবহার করা যায়। Advanced frontend architecture-এ এটি খুব গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;script type="module" src="main.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;noscript&gt;</h3>
+          <p class="theory">
+            যদি user-এর browser-এ JavaScript disabled থাকে, তাহলে fallback content দেখানোর জন্য noscript ব্যবহার হয়। Highly JS-dependent app-এ এটি informative message দিতে সাহায্য করে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;noscript&gt;
+  &lt;p&gt;এই ওয়েবসাইট ব্যবহার করতে JavaScript চালু করুন।&lt;/p&gt;
+&lt;/noscript&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 TEXT CONTENT -->
+    <section id="text-content" class="section">
+      <div class="section-head">
+        <div>
+          <h2>5. Text Content Elements</h2>
+          <p>Heading, paragraph, line break, section separator, preformatted text এবং long quotation—এসব text content element-এর অংশ।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;h1&gt; - &lt;h6&gt;</h3>
+          <p class="theory">
+            Heading tag content hierarchy বোঝায়। h1 সাধারণত page-এর প্রধান title, h2 section title, h3 subsection ইত্যাদি। শুধু বড় font পাওয়ার জন্য heading ব্যবহার করা ভুল; semantic structure বোঝাতে ব্যবহার করতে হবে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;h1&gt;HTML শেখা&lt;/h1&gt;
+&lt;h2&gt;Forms&lt;/h2&gt;
+&lt;h3&gt;Input Types&lt;/h3&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;p&gt;</h3>
+          <p class="theory">
+            সাধারণ paragraph text-এর জন্য p tag ব্যবহার হয়। Article, note, tutorial, documentation—প্রায় সব জায়গায় paragraph ব্যবহৃত হয়। Readable content তৈরি করার প্রধান ভিত্তি এটি।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;HTML হলো ওয়েবের structure তৈরির ভাষা।&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;br&gt;</h3>
+          <p class="theory">
+            একই text flow-এর মধ্যে line break দিতে br ব্যবহার হয়। Address, poem, short contact info-তে এটি useful। কিন্তু page layout spacing-এর জন্য br repeatedly ব্যবহার করা উচিত নয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;নাম: রাহাত&lt;br&gt;ঢাকা, বাংলাদেশ&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;hr&gt;</h3>
+          <p class="theory">
+            Thematic break বা section separation বোঝাতে hr ব্যবহার করা হয়। Article-এর topic change, content divider, note segmentation-এ কাজে লাগে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;প্রথম অংশ&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;দ্বিতীয় অংশ&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;pre&gt;</h3>
+          <p class="theory">
+            Preformatted text preserve করতে pre tag ব্যবহার হয়। এতে whitespace ও line break সাধারণত যেমন লেখা হয় তেমনই থাকে। Code display, poem formatting, aligned text, console output—এসব জায়গায় useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;pre&gt;
+লাইন ১
+    লাইন ২
+লাইন ৩
+&lt;/pre&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;blockquote&gt;</h3>
+          <p class="theory">
+            বড় quotation বা external উদ্ধৃতি দেখাতে blockquote ব্যবহার করা হয়। এটি semanticভাবে বোঝায় যে contentটি quoted material। Citation সহ academic বা article content-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;blockquote&gt;
+  Practice makes progress.
+&lt;/blockquote&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 INLINE SEMANTICS -->
+    <section id="inline-semantics" class="section">
+      <div class="section-head">
+        <div>
+          <h2>6. Inline Text Semantics</h2>
+          <p>Inline text-এর meaning, emphasis, importance, code-style, quotation, abbreviation, bidirectional text, ruby annotation ইত্যাদি বোঝাতে এই tagগুলো ব্যবহৃত হয়।</p>
+        </div>
+      </div>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;strong&gt; এবং &lt;em&gt;</h3>
+          <p class="theory">
+            strong text-এর গুরুত্ব বোঝায় এবং em text-এ emphasis বোঝায়। Browser সাধারণত strong-কে bold এবং em-কে italic দেখায়, তবে semantic অর্থই আসল। Meaningful emphasis বোঝাতে এগুলো ব্যবহার করা উচিত।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;&lt;strong&gt;সতর্কতা:&lt;/strong&gt; এটি গুরুত্বপূর্ণ।&lt;/p&gt;
+&lt;p&gt;HTML &lt;em&gt;ভালোভাবে&lt;/em&gt; শিখুন।&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;span&gt;</h3>
+          <p class="theory">
+            b, i, u অনেক সময় visual styling-এর জন্য দেখা যায়, যদিও semantic use case-ও থাকতে পারে। span হলো generic inline container, যার মাধ্যমে নির্দিষ্ট text target করে style বা script apply করা যায়। Modern code-এ styling-এর জন্য CSS ব্যবহার করাই ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;এটি &lt;span class="highlight"&gt;গুরুত্বপূর্ণ&lt;/span&gt; অংশ।&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;mark&gt;, &lt;small&gt;, &lt;sub&gt;, &lt;sup&gt;</h3>
+          <p class="theory">
+            mark দিয়ে highlight, small দিয়ে ছোট informational text, sub দিয়ে নিচে থাকা text, sup দিয়ে উপরে থাকা text দেখানো হয়। Scientific notation, formula, footnote, note text, highlighted term—এসব ক্ষেত্রে useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;Water = H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;x&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;গুরুত্বপূর্ণ&lt;/mark&gt; অংশ&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;del&gt;, &lt;ins&gt;, &lt;s&gt;</h3>
+          <p class="theory">
+            del বোঝায় text removed হয়েছে, ins বোঝায় text inserted হয়েছে। s tag অনেক সময় এমন text বোঝাতে ব্যবহৃত হয় যা আর accurate নয়, যেমন old price। Editing history, pricing UI, revisions—এসব ক্ষেত্রে useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;&lt;del&gt;500 টাকা&lt;/del&gt; &lt;ins&gt;350 টাকা&lt;/ins&gt;&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;q&gt;, &lt;cite&gt;, &lt;abbr&gt;</h3>
+          <p class="theory">
+            q inline quote-এর জন্য, cite কোনো বই/কাজ/শিল্পকর্মের reference-এর জন্য, abbr abbreviation-এর জন্য ব্যবহৃত হয়। Title attribute দিলে abbreviation-এর পূর্ণরূপ দেখানো যায়। Documentation ও article-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;সে বলল, &lt;q&gt;আমি HTML শিখছি&lt;/q&gt;&lt;/p&gt;
+&lt;p&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;code&gt;, &lt;kbd&gt;, &lt;samp&gt;, &lt;var&gt;</h3>
+          <p class="theory">
+            code code snippet দেখায়, kbd keyboard input বোঝায়, samp program output বোঝায়, var variable বোঝায়। Tutorial, programming note, technical documentation-এ এই tagগুলো semantic clarity দেয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;code&gt;console.log("Hello")&lt;/code&gt;
+&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;S&lt;/kbd&gt;
+&lt;var&gt;x&lt;/var&gt; = 10</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;dfn&gt;, &lt;time&gt;, &lt;data&gt;</h3>
+          <p class="theory">
+            dfn কোনো term-এর defining instance বোঝাতে ব্যবহৃত হয়। time machine-readable date/time দেয়। data human-visible text-এর সাথে machine-readable value যুক্ত করে। Semantic-rich document-এ এগুলো useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p&gt;&lt;dfn&gt;HTML&lt;/dfn&gt; হলো markup language।&lt;/p&gt;
+&lt;time datetime="2026-04-01"&gt;১ এপ্রিল ২০২৬&lt;/time&gt;
+&lt;data value="12345"&gt;Product #12345&lt;/data&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;bdi&gt;, &lt;bdo&gt;</h3>
+          <p class="theory">
+            Bidirectional text handling-এর জন্য bdi ও bdo ব্যবহার হয়। Mixed direction language content যেমন Arabic + English + Bangla text-এ এটি useful হতে পারে। সাধারণ project-এ কম ব্যবহার হলেও internationalization context-এ গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;bdo dir="rtl"&gt;Hello&lt;/bdo&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;ruby&gt;, &lt;rt&gt;, &lt;rp&gt;, &lt;wbr&gt;</h3>
+          <p class="theory">
+            ruby annotation East Asian pronunciation note-এর জন্য ব্যবহৃত হয়। rt annotation text, rp fallback parenthesis support দেয়। wbr word break opportunity বোঝায়। Rare হলেও international text layout-এ এগুলোর ব্যবহার আছে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;ruby&gt;
+  漢 &lt;rt&gt;kan&lt;/rt&gt;
+&lt;/ruby&gt;
+&lt;p&gt;longword&lt;wbr&gt;break&lt;/p&gt;</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7 LINKS -->
+    <section id="links" class="section">
+      <div class="section-head">
+        <div>
+          <h2>7. Links & URL Schemes</h2>
+          <p>Web-এর প্রাণ হলো hyperlink। Internal navigation, external link, email, phone, file download—সব anchor element দিয়ে করা যায়।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;a&gt; Anchor</h3>
+          <p class="theory">
+            Anchor tag link তৈরি করে। href attribute-এ destination দেওয়া হয়। এটি অন্য page, section id, external site, file link, email বা phone action—সবকিছু support করে। Navigation menu, CTA button, breadcrumb, article link—সবখানে এটি ব্যবহৃত হয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;a href="about.html"&gt;About&lt;/a&gt;
+&lt;a href="https://example.com"&gt;External Site&lt;/a&gt;
+&lt;a href="#forms"&gt;Forms এ যাও&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>mailto:, tel:, download</h3>
+          <p class="theory">
+            mailto: ব্যবহার করে email client খুলে email compose করা যায়। tel: ব্যবহার করে mobile device-এ call action trigger করা যায়। download attribute file download behavior নির্দেশ করতে পারে। Contact page-এ এগুলো খুব useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;a href="mailto:test@example.com"&gt;Email করুন&lt;/a&gt;
+&lt;a href="tel:+880123456789"&gt;Call করুন&lt;/a&gt;
+&lt;a href="notes.pdf" download&gt;PDF Download&lt;/a&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>target, rel</h3>
+          <p class="theory">
+            target="_blank" দিলে নতুন tab-এ link খুলে। rel="noopener noreferrer" security reason-এ external blank target link-এর সাথে দেওয়া ভালো। এটি performance ও security best practice।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener noreferrer"&gt;
+  New Tab
+&lt;/a&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 LISTS -->
+    <section id="lists" class="section">
+      <div class="section-head">
+        <div>
+          <h2>8. Lists</h2>
+          <p>Menu, feature list, ordered steps, glossary—এসব জায়গায় list structure খুব প্রয়োজনীয়।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;ul&gt; + &lt;li&gt;</h3>
+          <p class="theory">
+            Unordered list item-এর নির্দিষ্ট ক্রম না থাকলে ব্যবহার হয়। Menu, bullet points, features, notes—এসবের জন্য common।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;ol&gt; + &lt;li&gt;</h3>
+          <p class="theory">
+            Ordered list তখন ব্যবহার হয় যখন item sequence গুরুত্বপূর্ণ। Tutorial steps, recipe, ranking, instructions—এসবের জন্য perfect।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;ol&gt;
+  &lt;li&gt;File তৈরি করুন&lt;/li&gt;
+  &lt;li&gt;HTML লিখুন&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-            </div>
-          </div>
         </div>
 
-        <div class="card searchable" data-search="definition list dl dt dd">
-          <div class="card-top">
-            <span class="priority yellow">Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>8. Definition List</h4>
-            <div class="mini">dl, dt, dd</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Definition list term এবং তার explanation semanticভাবে দেখাতে use হয়।
-                এটা সাধারণ list-এর মতো না — glossary type content-এর জন্য better।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Glossary, FAQ-like term definition, metadata display-তে useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Normal bullet list-এর জায়গায় definition list use করো না। Use case অনুযায়ী tag choose করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;dl&gt;
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</h3>
+          <p class="theory">
+            Definition list term এবং explanation দেখাতে ব্যবহৃত হয়। Dictionary-style notes, glossary, terminology page-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;dl&gt;
   &lt;dt&gt;HTML&lt;/dt&gt;
-  &lt;dd&gt;Markup language for web pages&lt;/dd&gt;
+  &lt;dd&gt;ওয়েব structure-এর ভাষা&lt;/dd&gt;
 &lt;/dl&gt;</code></pre>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="tables">
+    <!-- 9 IMAGES GRAPHICS -->
+    <section id="images-graphics" class="section">
       <div class="section-head">
-        <h3>Tables</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>9. Images & Graphics</h2>
+          <p>Image, responsive image, captions, image map, drawing surface এবং vector graphics—এসব এই section-এ।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="table tr th td caption thead tbody">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>9. Basic Table Structure</h4>
-            <div class="mini">table, tr, th, td, caption, thead, tbody</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Table row-column data show করার জন্য use হয়।
-                Caption table title দেয়, th header cell, td data cell।
-                Structured tabular data-এর জন্য table best।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Result sheet, pricing table, report, schedule, score table — এসব জায়গায়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Layout করার জন্য table use করো না। Table শুধু real tabular data-এর জন্য।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;table&gt;
-  &lt;tr&gt;
-    &lt;th&gt;Name&lt;/th&gt;
-    &lt;th&gt;Age&lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;Rahim&lt;/td&gt;
-    &lt;td&gt;20&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-            </div>
-          </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;img&gt;</h3>
+          <p class="theory">
+            Image দেখানোর প্রধান tag হলো img। src দিয়ে file path, alt দিয়ে text alternative দেওয়া হয়। alt attribute accessibility-এর জন্য অত্যন্ত গুরুত্বপূর্ণ। Image load না হলে alt text সাহায্য করে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;img src="photo.jpg" alt="একটি প্রাকৃতিক দৃশ্য"&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="thead tbody tfoot table sections">
-          <div class="card-top">
-            <span class="priority yellow">Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>10. Table Sections</h4>
-            <div class="mini">thead, tbody, tfoot</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Table-এর logical parts আলাদা করতে thead, tbody, tfoot useful।
-                এতে code readable হয় এবং bigger table manage করা সহজ হয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Large table, report table, summary row, footer row — এসব ক্ষেত্রে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Small table-এ না লাগলেও বড় data table-এ structure maintain করা ভালো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th&gt;Item&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;Book&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;figure&gt; + &lt;figcaption&gt;</h3>
+          <p class="theory">
+            কোনো image, diagram, code sample, chart-এর সাথে caption যুক্ত করতে figure ও figcaption ব্যবহার হয়। Article ও tutorial content-এ খুব সুন্দর semantic structure দেয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;figure&gt;
+  &lt;img src="logo.png" alt="লোগো"&gt;
+  &lt;figcaption&gt;কোম্পানির লোগো&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;picture&gt; + &lt;source&gt;</h3>
+          <p class="theory">
+            Responsive image বা different image format support করার জন্য picture ব্যবহার করা হয়। বিভিন্ন screen size বা format অনুযায়ী browser সঠিক source বেছে নিতে পারে। Performance optimization-এর জন্য useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;picture&gt;
+  &lt;source srcset="small.jpg" media="(max-width: 600px)"&gt;
+  &lt;img src="large.jpg" alt="Responsive image"&gt;
+&lt;/picture&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;map&gt; + &lt;area&gt;</h3>
+          <p class="theory">
+            Image map তৈরি করে image-এর নির্দিষ্ট অঞ্চলকে clickable করা যায়। Modern UI-তে কম ব্যবহৃত হলেও কিছু educational বা custom diagram-based interface-এ এর দরকার হতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;img src="planets.jpg" usemap="#planetmap" alt="Planets"&gt;
+&lt;map name="planetmap"&gt;
+  &lt;area shape="rect" coords="0,0,100,100" href="mars.html" alt="Mars"&gt;
+&lt;/map&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;canvas&gt;</h3>
+          <p class="theory">
+            Canvas একটি drawing surface দেয় যার উপর JavaScript দিয়ে graphics, animation, game, charts, effects আঁকা যায়। Raw HTML হিসেবে canvas শুধু area তৈরি করে, আসল drawing JavaScript দিয়ে হয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;canvas id="myCanvas" width="300" height="150"&gt;&lt;/canvas&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;svg&gt;</h3>
+          <p class="theory">
+            SVG হলো scalable vector graphics, যা resolution-independent। Logo, icon, chart, custom illustration-এর জন্য খুব উপযোগী। CSS ও JavaScript দিয়ে manipulate করা যায়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;svg width="100" height="100"&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="tomato" /&gt;
+&lt;/svg&gt;</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10 AUDIO VIDEO -->
+    <section id="audio-video" class="section">
+      <div class="section-head">
+        <div>
+          <h2>10. Audio & Video</h2>
+          <p>Multimedia content embed করার জন্য audio, video, source এবং subtitle track গুরুত্বপূর্ণ।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;audio&gt;</h3>
+          <p class="theory">
+            Audio file play করতে audio tag ব্যবহৃত হয়। controls দিলে browser player দেখায়। Podcast, pronunciation training, music preview, spoken lesson—এসব ক্ষেত্রে useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;audio controls&gt;
+  &lt;source src="song.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;video&gt;</h3>
+          <p class="theory">
+            Video content embed করতে video tag ব্যবহৃত হয়। controls, autoplay, muted, loop, poster ইত্যাদি attribute থাকতে পারে। Course site, demo page, portfolio, media platform-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;video controls width="320"&gt;
+  &lt;source src="lesson.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;track&gt;</h3>
+          <p class="theory">
+            Subtitle, caption, chapter data দেওয়ার জন্য track ব্যবহৃত হয়। Accessibility এবং multilingual learning experience-এর জন্য এটি খুব helpful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;video controls&gt;
+  &lt;source src="movie.mp4" type="video/mp4"&gt;
+  &lt;track src="subtitles.vtt" kind="subtitles" srclang="en" label="English"&gt;
+&lt;/video&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="forms">
+    <!-- 11 TABLES -->
+    <section id="tables" class="section">
       <div class="section-head">
-        <h3>Forms & Inputs</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>11. Tables</h2>
+          <p>Structured data row-column আকারে দেখানোর জন্য table element family ব্যবহৃত হয়। Layout করার জন্য table ব্যবহার করা উচিত নয়।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="form input label button textarea select option">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>11. Core Form Elements</h4>
-            <div class="mini">form, input, label, button, textarea, select, option</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                User input collect করার জন্য form system use হয়।
-                input single-line data নেয়, textarea multi-line data নেয়,
-                select dropdown choice দেয়, label field explain করে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Login, signup, contact form, feedback form, search form — সবখানে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Input-এর সাথে label link করতে for/id use করো। এটা accessibility-এর জন্য important।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;form&gt;
-  &lt;label for="email"&gt;Email&lt;/label&gt;
-  &lt;input id="email" type="email"&gt;
-  &lt;button type="submit"&gt;Send&lt;/button&gt;
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</h3>
+          <p class="theory">
+            Table-এর মূল building block হলো table, tr, th, td। tr = row, th = header cell, td = data cell। Marksheet, pricing table, schedule, report data—এসবের জন্য essential।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;নাম&lt;/th&gt;
+    &lt;th&gt;স্কোর&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;রিমা&lt;/td&gt;
+    &lt;td&gt;90&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;thead&gt;, &lt;tbody&gt;, &lt;tfoot&gt;</h3>
+          <p class="theory">
+            Large table-এ semantic grouping করার জন্য thead, tbody, tfoot ব্যবহার করা হয়। এতে structure স্পষ্ট হয়, styling সহজ হয় এবং assistive technology table better বুঝতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;table&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;পণ্য&lt;/th&gt;&lt;th&gt;দাম&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Mouse&lt;/td&gt;&lt;td&gt;500&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;caption&gt;, colspan, rowspan</h3>
+          <p class="theory">
+            Table title বোঝাতে caption ব্যবহার হয়। colspan দিয়ে multiple column merge করা যায়, rowspan দিয়ে multiple row merge করা যায়। Complex table-এ এগুলো দরকার হতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;table border="1"&gt;
+  &lt;caption&gt;ফলাফল&lt;/caption&gt;
+  &lt;tr&gt;&lt;th colspan="2"&gt;Student Info&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;রাহাত&lt;/td&gt;&lt;td&gt;A+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;colgroup&gt; এবং &lt;col&gt;</h3>
+          <p class="theory">
+            Table column group define করতে colgroup এবং specific column property target করতে col ব্যবহার হয়। Styling ও structural hint-এর জন্য useful, তবে beginner project-এ কম দেখা যায়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;table&gt;
+  &lt;colgroup&gt;
+    &lt;col span="1" style="background:#f3f4f6"&gt;
+  &lt;/colgroup&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 12 FORMS -->
+    <section id="forms" class="section">
+      <div class="section-head">
+        <div>
+          <h2>12. Forms & Form Controls</h2>
+          <p>Full stack development-এর সবচেয়ে গুরুত্বপূর্ণ chapterগুলোর একটি। User input নেওয়া, validate করা, backend-এ পাঠানো—এসব form-এর মাধ্যমে হয়।</p>
+        </div>
+      </div>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;form&gt;</h3>
+          <p class="theory">
+            Form হলো user data collect করার wrapper। action বলে কোথায় data যাবে, method বলে GET না POST হবে। enctype file upload-এর ক্ষেত্রে দরকার হতে পারে। Backend integration বুঝতে form খুবই গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;form action="/submit" method="post"&gt;
+  ...
 &lt;/form&gt;</code></pre>
-            </div>
-          </div>
         </div>
 
-        <div class="card searchable" data-search="input types text email password checkbox radio file date">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>12. Important Input Types</h4>
-            <div class="mini">text, email, password, checkbox, radio, file, date</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Input type field-এর purpose define করে।
-                Email field email validation hint দেয়, password hidden input দেয়,
-                checkbox multiple choice, radio single choice, file upload file নেয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Registration, settings panel, survey, upload form — সব জায়গায় use হয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                সব input-এ type="text" use না করে correct type use করো। এতে usability improve হয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;input type="text"&gt;
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;label&gt;</h3>
+          <p class="theory">
+            Form field-এর description বোঝাতে label ব্যবহার হয়। for attribute input id-এর সাথে match করলে usability ও accessibility অনেক ভালো হয়। ভালো HTML form মানেই label correctly ব্যবহার করা।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;label for="email"&gt;ইমেইল&lt;/label&gt;
+&lt;input id="email" type="email" name="email"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;input&gt; basics</h3>
+          <p class="theory">
+            input হলো সবচেয়ে versatile form element। type অনুযায়ী behavior বদলায়। name attribute backend-এর জন্য জরুরি, placeholder hint দেয়, required validation trigger করে, value default value সেট করে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;input type="text" name="username" placeholder="আপনার নাম"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Common Input Types</h3>
+          <p class="theory">
+            text, email, password, number, checkbox, radio, file, date, time, tel, url, search—এসব input type খুব common। সঠিক type ব্যবহার করলে browser built-in validation, mobile keyboard optimization এবং better UX দেয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;input type="text"&gt;
 &lt;input type="email"&gt;
+&lt;input type="password"&gt;
+&lt;input type="number"&gt;
 &lt;input type="checkbox"&gt;
-&lt;input type="date"&gt;</code></pre>
-            </div>
-          </div>
+&lt;input type="radio"&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="action method get post enctype fieldset legend datalist">
-          <div class="card-top">
-            <span class="priority yellow">Very Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>13. Form Submission & Grouping</h4>
-            <div class="mini">action, method, enctype, fieldset, legend, datalist</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Form কোথায় যাবে, কীভাবে data পাঠাবে, আর form sections কিভাবে group হবে —
-                তা action, method, fieldset, legend-এর মাধ্যমে control হয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Real backend-connected forms বা structured forms-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                File upload থাকলে enctype ভুলে যেও না। আর related inputs group করতে fieldset useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;form action="/submit" method="post"&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Personal Info&lt;/legend&gt;
-    &lt;input type="text"&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>More Input Types</h3>
+          <p class="theory">
+            color, range, datetime-local, month, week, hidden, submit, reset, button, image—এসব input type specific কাজের জন্য ব্যবহার হয়। সব project-এ না লাগলেও HTML reference হিসেবে জানা দরকার।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;input type="date"&gt;
+&lt;input type="range" min="0" max="100"&gt;
+&lt;input type="color"&gt;
+&lt;input type="hidden" name="token" value="abc123"&gt;</code></pre>
         </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;textarea&gt;</h3>
+          <p class="theory">
+            Multi-line text input নেওয়ার জন্য textarea ব্যবহৃত হয়। Message box, comments, description, address, review ইত্যাদিতে খুব common।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;textarea name="message" rows="4" cols="30"&gt;&lt;/textarea&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;button&gt;</h3>
+          <p class="theory">
+            Button click action trigger করে। type="submit", type="reset", type="button"—এই তিনটি common form usage আছে। Semantic button tag div click handler-এর চেয়ে better practice।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;button type="submit"&gt;Submit&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;select&gt;, &lt;option&gt;, &lt;optgroup&gt;</h3>
+          <p class="theory">
+            Dropdown select করার জন্য select ব্যবহার হয়। option প্রতিটি option define করে। অনেক option থাকলে optgroup দিয়ে group করা যায়। Country, category, course, status selector-এ common।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;select name="course"&gt;
+  &lt;optgroup label="Frontend"&gt;
+    &lt;option value="html"&gt;HTML&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;fieldset&gt; + &lt;legend&gt;</h3>
+          <p class="theory">
+            Related form controls group করার জন্য fieldset এবং group title-এর জন্য legend ব্যবহার হয়। বড় form-এ readability বাড়ে এবং accessibility উন্নত হয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;ব্যক্তিগত তথ্য&lt;/legend&gt;
+  &lt;input type="text" name="name"&gt;
+&lt;/fieldset&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;datalist&gt;</h3>
+          <p class="theory">
+            input-এর জন্য predefined suggestion list দিতে datalist ব্যবহার হয়। এটি autocomplete-এর lightweight semantic option। Search suggestion বা browser suggestion type UX-এ useful হতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;input list="browsers"&gt;
+&lt;datalist id="browsers"&gt;
+  &lt;option value="Chrome"&gt;
+  &lt;option value="Firefox"&gt;
+&lt;/datalist&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;output&gt;, &lt;progress&gt;, &lt;meter&gt;</h3>
+          <p class="theory">
+            output calculated result দেখাতে পারে, progress task progress বোঝায়, meter known range-এর measurement বোঝায়। এগুলো specific use case-এ ভালো semantic meaning দেয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;progress value="60" max="100"&gt;&lt;/progress&gt;
+&lt;meter value="0.7"&gt;70%&lt;/meter&gt;</code></pre>
+        </div>
+
+      </div>
+      <div class="note">
+        <strong>ফর্মে গুরুত্বপূর্ণ attribute:</strong> name, id, value, placeholder, required, readonly, disabled, checked, selected, minlength, maxlength, min, max, step, autocomplete, autofocus, multiple, accept, pattern।
       </div>
     </section>
 
-    <section class="section" id="attributes">
+    <!-- 13 SEMANTIC LAYOUT -->
+    <section id="semantic-layout" class="section">
       <div class="section-head">
-        <h3>Attributes</h3>
-        <span class="badge essential">Must Master</span>
+        <div>
+          <h2>13. Semantic Layout Elements</h2>
+          <p>Modern HTML-এর সবচেয়ে গুরুত্বপূর্ণ দিকগুলোর একটি হলো semantic layout। এতে SEO, accessibility ও code readability অনেক ভালো হয়।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="href src alt id class title">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>14. Core Attributes</h4>
-            <div class="mini">href, src, alt, id, class, title</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Attributes tag-কে extra meaning বা functionality দেয়।
-                href link target দেয়, src file source দেয়,
-                alt image description দেয়, class/id CSS ও JS targeting-এ useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Link, image, styling, scripting, tooltip text — সব basic web work-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                href vs src confuse করো না। আর alt attribute empty না রেখে meaningful রাখো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;a href="about.html" class="nav-link"&gt;About&lt;/a&gt;
-&lt;img src="logo.png" alt="Website logo"&gt;</code></pre>
-            </div>
-          </div>
-        </div>
 
-        <div class="card searchable" data-search="name value placeholder required checked selected type">
-          <div class="card-top">
-            <span class="priority red">Highest Priority</span>
-            <span class="usage most">Most Used</span>
-            <h4>15. Form Attributes</h4>
-            <div class="mini">name, value, placeholder, required, checked, selected, type</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Form field-এর behavior control করতে এই attributes দরকার।
-                Required mandatory field করে, placeholder hint দেয়,
-                checked/selected default selected state দেয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                সব practical form-এ এই attributes useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Placeholder label-এর replacement না। Label use করতেই হবে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;input type="text" name="username" placeholder="Enter name" required&gt;
-&lt;input type="checkbox" checked&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="card searchable" data-search="lang dir hidden tabindex data attributes">
-          <div class="card-top">
-            <span class="priority yellow">Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>16. Global Attributes</h4>
-            <div class="mini">lang, dir, hidden, tabindex, data-*</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                অনেক HTML element-এই use করা যায় এমন common attributes-কে global attributes বলে।
-                এগুলো accessibility, behavior, data binding-এ useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Language declaration, hidden content, JS custom data storage, keyboard order control-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Data attributes custom info store করতে useful, but unnecessary random use avoid করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;p lang="bn" data-topic="html"&gt;বাংলা লেখা&lt;/p&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="semantic">
-      <div class="section-head">
-        <h3>Semantic HTML</h3>
-        <span class="badge important">Very Important</span>
-      </div>
-      <div class="grid">
-        <div class="card searchable" data-search="header nav main footer semantic layout">
-          <div class="card-top">
-            <span class="priority yellow">Very Important</span>
-            <span class="usage most">Most Used</span>
-            <h4>17. Layout Semantics</h4>
-            <div class="mini">header, nav, main, footer</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Semantic tags content-এর meaning clearly বোঝায়।
-                Header top section, nav navigation links, main main content, footer bottom info represent করে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                প্রায় সব modern website layout-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                সব layout div দিয়ে না বানিয়ে meaningful semantic tag use করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;header&gt;Header&lt;/header&gt;
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</h3>
+          <p class="theory">
+            header সাধারণত page intro বা top area, nav navigation area, main page-এর primary content, footer নিচের information section বোঝায়। Proper page structure গঠনে এগুলো অত্যন্ত গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;header&gt;Logo&lt;/header&gt;
 &lt;nav&gt;Menu&lt;/nav&gt;
 &lt;main&gt;Main Content&lt;/main&gt;
 &lt;footer&gt;Footer&lt;/footer&gt;</code></pre>
-            </div>
-          </div>
         </div>
 
-        <div class="card searchable" data-search="section article aside figure figcaption">
-          <div class="card-top">
-            <span class="priority yellow">Very Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>18. Content Semantics</h4>
-            <div class="mini">section, article, aside, figure, figcaption</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Section related content group করে, article independent content,
-                aside side content, figure media group, figcaption media caption দেয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Blog, news page, content-heavy page, documentation, learning site-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Every div-কে section বানিয়ে ফেলো না। Real logical grouping থাকলে semantic tag use করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;section&gt;
-  &lt;article&gt;Blog post&lt;/article&gt;
-  &lt;aside&gt;Related links&lt;/aside&gt;
-&lt;/section&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;section&gt; এবং &lt;article&gt;</h3>
+          <p class="theory">
+            section related content group করে, article standalone meaningful content বোঝায়। Blog post, card article, knowledge block, landing page section—এসব ক্ষেত্রে এগুলো ideal।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;section&gt;
+  &lt;h2&gt;Features&lt;/h2&gt;
+&lt;/section&gt;
+
+&lt;article&gt;
+  &lt;h2&gt;Blog Title&lt;/h2&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;aside&gt;</h3>
+          <p class="theory">
+            Main content-এর পাশে related sidebar, tips, ads, extra notes বা related links দেখাতে aside ব্যবহার হয়। Documentation page, blog layout, learning dashboard-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;aside&gt;
+  &lt;h3&gt;Related Resources&lt;/h3&gt;
+&lt;/aside&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;address&gt;</h3>
+          <p class="theory">
+            address সাধারণত contact information বোঝাতে ব্যবহৃত হয়। এটি physical address না হলেও author/contact information represent করতে পারে। Footer বা contact section-এ ব্যবহার হতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;address&gt;
+  ঢাকা, বাংলাদেশ
+&lt;/address&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>&lt;div&gt;</h3>
+          <p class="theory">
+            div semantic tag নয়, তবে generic block container হিসেবে খুব common। CSS layout, wrapper, card, grid item, grouped element—এসব ক্ষেত্রে div ব্যাপকভাবে ব্যবহৃত হয়। Semantic alternative থাকলে সেটি আগে ভাবা ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;div class="card"&gt;
+  &lt;h3&gt;Title&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 14 EMBEDDED -->
+    <section id="embedded" class="section">
+      <div class="section-head">
+        <div>
+          <h2>14. Embedded Content</h2>
+          <p>External page, PDF, media object বা third-party widget embed করতে এই tagগুলো ব্যবহার হয়।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;iframe&gt;</h3>
+          <p class="theory">
+            অন্য webpage বা service আপনার page-এর ভিতরে embed করতে iframe ব্যবহার হয়। YouTube, Google Maps, external tools, payment UI—এসব embed করতে common। Security-এর জন্য sandbox attribute সম্পর্কে ধারণা রাখা ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;iframe src="https://example.com" width="300" height="200"&gt;&lt;/iframe&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>iframe sandbox basics</h3>
+          <p class="theory">
+            sandbox attribute iframe content-এর capability সীমিত করতে পারে। Third-party embed-এর ক্ষেত্রে security risk কমাতে এটি useful। Advanced topic হলেও জানা দরকার।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;iframe src="https://example.com" sandbox="allow-scripts"&gt;&lt;/iframe&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;embed&gt;, &lt;object&gt;, &lt;param&gt;</h3>
+          <p class="theory">
+            Legacy বা special content embed করতে embed/object ব্যবহৃত হতে পারে। Modern web-এ কম common, কিন্তু পুরনো project-এ দেখা যায়। object-এর child হিসেবে param ব্যবহার করা হতো additional parameter দিতে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;object data="file.pdf" type="application/pdf" width="400" height="300"&gt;
+  &lt;param name="zoom" value="100"&gt;
+&lt;/object&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="accessibility">
+    <!-- 15 INTERACTIVE -->
+    <section id="interactive" class="section">
       <div class="section-head">
-        <h3>Accessibility</h3>
-        <span class="badge important">Very Important</span>
+        <div>
+          <h2>15. Interactive Elements</h2>
+          <p>HTML-এর কিছু built-in interactive tag আছে যা JavaScript ছাড়াই basic UI behavior দিতে পারে।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="alt label headings order accessibility">
-          <div class="card-top">
-            <span class="priority yellow">Must Follow</span>
-            <span class="usage most">Most Used</span>
-            <h4>19. Accessibility Basics</h4>
-            <div class="mini">alt, labels, heading order</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Accessibility মানে website যেন সবার জন্য usable হয়।
-                Alt text, proper form labels, logical heading order — এগুলো accessibility-এর foundation।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                সব image, সব form, সব meaningful page structure-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Placeholder থাকলেই label দরকার নেই — এটা ভুল। Label must use।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;label for="name"&gt;Name&lt;/label&gt;
-&lt;input id="name" type="text"&gt;
-&lt;img src="user.jpg" alt="User profile photo"&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="card searchable" data-search="button vs link correct element accessibility">
-          <div class="card-top">
-            <span class="priority yellow">Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>20. Use the Right Element</h4>
-            <div class="mini">button for action, anchor for navigation</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                HTML element-এর meaning অনুযায়ী use করা accessibility ও usability improve করে।
-                Button action trigger করে, link navigation করে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Page change হলে anchor, popup/open action হলে button use করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Anchor tag-কে fake button বানানো avoid করো যদি actual navigation না থাকে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;a href="about.html"&gt;Go to About&lt;/a&gt;
-&lt;button type="button"&gt;Open Menu&lt;/button&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="seo">
-      <div class="section-head">
-        <h3>SEO Basics</h3>
-        <span class="badge important">Important</span>
-      </div>
-      <div class="grid">
-        <div class="card searchable" data-search="title meta description seo">
-          <div class="card-top">
-            <span class="priority yellow">High Impact</span>
-            <span class="usage most">Most Used</span>
-            <h4>21. Title & Meta Description</h4>
-            <div class="mini">title, meta description</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Search engine page topic বুঝতে title ও meta description helpful।
-                Browser tab-এ title দেখা যায়, search result snippet-এ description useful হতে পারে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                প্রতিটি important page-এর জন্য unique title এবং useful description দেওয়া উচিত।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                সব page-এ same title রাখো না। Page-specific title SEO-র জন্য better।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;title&gt;Learn HTML in Bangla&lt;/title&gt;
-&lt;meta name="description" content="Complete HTML learning guide in Bangla"&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="card searchable" data-search="heading structure semantic layout seo language alt">
-          <div class="card-top">
-            <span class="priority yellow">Important</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>22. SEO-Friendly Structure</h4>
-            <div class="mini">clear h1, semantic layout, language declaration</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Search engine content context বুঝতে headings, semantic layout, language declaration, image alt — সব useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Blog, landing page, tutorial page, service page — সব content-based page-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Multiple h1 বা random heading order avoid করো। Semantic structure clear রাখো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;html lang="en"&gt;
-&lt;h1&gt;HTML Form Tutorial&lt;/h1&gt;
-&lt;h2&gt;Input Types&lt;/h2&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="advanced-tags">
-      <div class="section-head">
-        <h3>Advanced Useful Tags</h3>
-        <span class="badge advanced">Good to Know</span>
-      </div>
-      <div class="grid">
-        <div class="card searchable" data-search="details summary progress meter">
-          <div class="card-top">
-            <span class="priority green">Advanced Useful</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>23. Interactive Utility Tags</h4>
-            <div class="mini">details, summary, progress, meter</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                এসব tags interactive disclosure, progress display, measured values দেখাতে useful।
-                Simple UI interaction-এর জন্য built-in HTML solution দেয়।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                FAQ, progress bar, score meter, hidden extra info section-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                সব hidden content-এর জন্য JavaScript দরকার হয় না — details/summary enough হতে পারে।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;details&gt;
-  &lt;summary&gt;Read More&lt;/summary&gt;
-  &lt;p&gt;Extra content&lt;/p&gt;
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>&lt;details&gt; + &lt;summary&gt;</h3>
+          <p class="theory">
+            Expand/collapse content বানাতে details ও summary ব্যবহার হয়। FAQ section, hidden note, extra explanation, collapsible topic list—এসবের জন্য excellent।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;details&gt;
+  &lt;summary&gt;HTML কী?&lt;/summary&gt;
+  &lt;p&gt;HTML হলো markup language.&lt;/p&gt;
 &lt;/details&gt;</code></pre>
-            </div>
-          </div>
         </div>
 
-        <div class="card searchable" data-search="audio video source picture iframe">
-          <div class="card-top">
-            <span class="priority green">Advanced Useful</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>24. Advanced Media & Embed</h4>
-            <div class="mini">audio, video, source, picture, iframe</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Media embed, responsive image serve, external page or video embed — এসবের জন্য useful advanced tags।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Course page, portfolio project, tutorial site, media-heavy layout-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                External embed-এ performance ও security consideration মাথায় রাখো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;video controls&gt;
-  &lt;source src="video.mp4" type="video/mp4"&gt;
-&lt;/video&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="card searchable" data-search="code pre blockquote q mark abbr time">
-          <div class="card-top">
-            <span class="priority green">Good to Know</span>
-            <span class="usage less">Less Use</span>
-            <h4>25. Special Content Tags</h4>
-            <div class="mini">code, pre, blockquote, q, mark, abbr, time</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Documentation, quotes, abbreviation explanation, highlighted content, date/time semanticভাবে দেখাতে এসব useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                Tutorial site, article page, notes, blog post, glossary-like content-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                শুধু style-এর জন্য mark/code use না করে semantic meaning থাকলে use করো।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;p&gt;Use &lt;code&gt;console.log()&lt;/code&gt;&lt;/p&gt;
-&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="card searchable" data-search="canvas svg template noscript address cite">
-          <div class="card-top">
-            <span class="priority green">Rare but Good</span>
-            <span class="usage less">Less Use</span>
-            <h4>26. Rare but Good to Know</h4>
-            <div class="mini">canvas, svg, template, noscript, address, cite</div>
-          </div>
-          <div class="card-body">
-            <div class="block">
-              <h5>Detailed Essential Note</h5>
-              <p>
-                Graphics, reusable template, JS fallback, contact info, citation — advanced cases-এ এসব tags useful।
-              </p>
-            </div>
-            <div class="block">
-              <h5>When / Where to Use</h5>
-              <p>
-                SVG icons, JS app templates, contact page, article references-এ।
-              </p>
-            </div>
-            <div class="block">
-              <h5>Pro Tip / Common Mistake</h5>
-              <p>
-                Canvas ও SVG একই না — one is drawing surface, another is vector markup.
-              </p>
-            </div>
-            <div class="block">
-              <h5>Example</h5>
-              <pre><code>&lt;svg width="100" height="100"&gt;
-  &lt;circle cx="50" cy="50" r="40" fill="red"&gt;&lt;/circle&gt;
-&lt;/svg&gt;</code></pre>
-            </div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;dialog&gt;</h3>
+          <p class="theory">
+            Dialog tag modal বা pop-up style content তৈরি করতে পারে। Modern হলেও সব project-এ native dialog ব্যবহার করা হয় না; অনেক সময় custom modal বানানো হয়। তবুও reference হিসেবে জানা দরকার।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;dialog open&gt;
+  &lt;p&gt;এটি একটি dialog box&lt;/p&gt;
+&lt;/dialog&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="best-practices">
+    <!-- 16 TEMPLATES -->
+    <section id="templates" class="section">
       <div class="section-head">
-        <h3>Best Practices</h3>
-        <span class="badge advanced">Expert Habit</span>
+        <div>
+          <h2>16. Template & Web Component Related Elements</h2>
+          <p>Reusable markup, client-side rendering এবং Web Components ecosystem-এ template-related tag জানা advanced learner-এর জন্য উপকারী।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="clean html semantic structure labels alt">
-          <div class="card-top">
-            <span class="priority green">Expert Habit</span>
-            <span class="usage most">Most Used</span>
-            <h4>27. Write Clean, Semantic HTML</h4>
-            <div class="mini">meaningful tags, readable structure</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>HTML expert শুধু tag জানে না, clean, logical, semantic structure লেখে।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>সব project-এ semantic and readable code maintain করা উচিত।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>সবকিছু div-এ ভরে ফেলো না। Semantic opportunity miss করো না।</p></div>
-            <div class="block"><h5>Example</h5><pre><code>&lt;section class="services"&gt;
-  &lt;h2&gt;Our Services&lt;/h2&gt;
-  &lt;p&gt;We build websites.&lt;/p&gt;
-&lt;/section&gt;</code></pre></div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;template&gt;</h3>
+          <p class="theory">
+            Template tag browser-এ render হয় না, তবে JavaScript দিয়ে clone করে DOM-এ inject করা যায়। Reusable markup fragment তৈরিতে useful। Advanced frontend বা component-based logic-এ এটি সাহায্য করে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;template id="cardTemplate"&gt;
+  &lt;div class="card"&gt;Hello&lt;/div&gt;
+&lt;/template&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="validate html proper nesting close tags">
-          <div class="card-top">
-            <span class="priority green">Expert Habit</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>28. Proper Nesting & Validation</h4>
-            <div class="mini">close tags properly, avoid invalid nesting</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>Wrong nesting, missing closing tag, invalid structure future bug create করতে পারে।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>সব HTML file লেখার সময় clean nesting maintain করো।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Browser অনেক error tolerate করে, তাই ভুল বোঝা যায় না। তাই validator use করা ভালো।</p></div>
-            <div class="block"><h5>Example</h5><pre><code>&lt;p&gt;Hello World&lt;/p&gt;</code></pre></div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;slot&gt;</h3>
+          <p class="theory">
+            Slot Web Components-এ content projection-এর জন্য ব্যবহৃত হয়। Beginner HTML learning-এ খুব জরুরি নয়, কিন্তু expert reference হিসেবে জানা উচিত।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;slot name="title"&gt;&lt;/slot&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <!-- 17 GLOBAL ATTRIBUTES -->
+    <section id="global-attributes" class="section">
       <div class="section-head">
-        <h3>Practice Projects</h3>
-        <span class="badge important">Practice to Master</span>
+        <div>
+          <h2>17. Global Attributes</h2>
+          <p>কিছু attribute প্রায় সব HTML element-এ ব্যবহার করা যায়। এগুলো styling, scripting, accessibility, interaction—সব জায়গায় গুরুত্বপূর্ণ।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="portfolio project html practice">
-          <div class="card-top">
-            <span class="priority yellow">Must Build</span>
-            <span class="usage most">Most Used</span>
-            <h4>29. Portfolio Website</h4>
-            <div class="mini">about, skills, projects, contact</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>Portfolio project করলে headings, image, links, semantic layout, form — সব একসাথে practice হবে।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>নিজের learning test করার জন্য best beginner-to-intermediate project।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Just section বানিয়ে শেষ করো না—clean semantic structure maintain করো।</p></div>
-          </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>id, class, title, style</h3>
+          <p class="theory">
+            id unique identify করে, class group styling বা JS targeting-এর জন্য ব্যবহার হয়, title tooltip-type extra info দিতে পারে, style inline CSS-এর জন্য। এর মধ্যে id ও class সবচেয়ে বেশি ব্যবহৃত।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;div id="hero" class="section-card" title="Hero Section"&gt;&lt;/div&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="blog article project html">
-          <div class="card-top">
-            <span class="priority yellow">Great Practice</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>30. Blog / Article Page</h4>
-            <div class="mini">article, headings, time, figure</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>Content-heavy structure practice করতে blog page খুব useful।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>Article layout, semantic content grouping, publish date use case-এ।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Heading hierarchy ঠিক রাখো, image-এর caption দিলে figure/figcaption use করতে পারো।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>lang, dir, hidden</h3>
+          <p class="theory">
+            lang document/content language বোঝায়, dir text direction নিয়ন্ত্রণ করে, hidden element সাময়িকভাবে hide করতে পারে। Multilingual ও accessible project-এ এগুলো গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p lang="bn"&gt;বাংলা লেখা&lt;/p&gt;
+&lt;div hidden&gt;Hidden Content&lt;/div&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="table project result report html">
-          <div class="card-top">
-            <span class="priority yellow">Useful Practice</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>31. Table Project</h4>
-            <div class="mini">results, schedule, pricing data</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>Tabular data structure practice করতে result বা pricing table build করো।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>Data presentation practice-এর জন্য।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Table layout design-এর জন্য না, real data-এর জন্য use করো।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>tabindex, contenteditable, draggable</h3>
+          <p class="theory">
+            tabindex keyboard navigation control করে, contenteditable element-কে editable বানাতে পারে, draggable drag behavior enable করতে পারে। Special UI behavior-এ useful।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;div tabindex="0"&gt;Focusable&lt;/div&gt;
+&lt;p contenteditable="true"&gt;এডিট করা যাবে&lt;/p&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="form project contact registration html">
-          <div class="card-top">
-            <span class="priority yellow">Must Build</span>
-            <span class="usage most">Most Used</span>
-            <h4>32. Form Project</h4>
-            <div class="mini">contact form, registration form</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><h5>Detailed Essential Note</h5><p>Form project করলে input types, labels, textarea, select, submission structure strong হবে।</p></div>
-            <div class="block"><h5>When / Where to Use</h5><p>Contact form, feedback form, signup page build করার সময়।</p></div>
-            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Placeholder থাকলেই field understandable হবে—এটা ধরে নিও না; label দাও।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>spellcheck, translate</h3>
+          <p class="theory">
+            spellcheck browser spell checking control করে। translate attribute translation behavior hint দিতে পারে। Special content ক্ষেত্রে useful হতে পারে।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;textarea spellcheck="true"&gt;&lt;/textarea&gt;
+&lt;span translate="no"&gt;HTML&lt;/span&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>data-* attributes</h3>
+          <p class="theory">
+            Custom data store করার জন্য data-* attribute খুব useful। JavaScript দিয়ে element-এর সাথে extra data attach করতে এটি commonly ব্যবহৃত হয়। Frontend components, filtering, interactive UI-তে প্রায়ই দেখা যায়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;button data-id="101" data-role="delete"&gt;Delete&lt;/button&gt;</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 18 ACCESSIBILITY -->
+    <section id="accessibility" class="section">
+      <div class="section-head">
+        <div>
+          <h2>18. Accessibility Basics</h2>
+          <p>Professional HTML লিখতে accessibility অপরিহার্য। এটি শুধু bonus skill নয়, বরং ভালো web development-এর অংশ।</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>alt, label, heading order, semantic HTML</h3>
+          <p class="theory">
+            Accessibility-এর মৌলিক নিয়মগুলোর মধ্যে আছে image-এ alt text, form field-এ label, proper heading hierarchy, semantic section usage, keyboard-friendly interaction। এগুলো screen reader ব্যবহারকারীদের জন্য খুব গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;img src="team.jpg" alt="আমাদের টিমের গ্রুপ ছবি"&gt;
+&lt;label for="name"&gt;নাম&lt;/label&gt;
+&lt;input id="name" type="text"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>ARIA basics</h3>
+          <p class="theory">
+            Native HTML যথেষ্ট না হলে ARIA attribute screen reader-কে extra meaning দেয়। তবে মনে রাখতে হবে: “No ARIA is better than bad ARIA.” যতটা সম্ভব semantic HTML আগে ব্যবহার করো। ARIA advanced layer হিসেবে ভাবা ভালো।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;button aria-label="মেনু খুলুন"&gt;☰&lt;/button&gt;</code></pre>
         </div>
       </div>
     </section>
 
-    <section class="section" id="interview">
+    <!-- 19 ENTITIES -->
+    <section id="entities" class="section">
       <div class="section-head">
-        <h3>Interview Revision</h3>
-        <span class="badge advanced">Quick Recall</span>
+        <div>
+          <h2>19. HTML Entities & Special Characters</h2>
+          <p>কিছু character সরাসরি HTML-এ লিখলে conflict হতে পারে। তখন entity ব্যবহার করা হয়।</p>
+        </div>
       </div>
       <div class="grid">
-        <div class="card searchable" data-search="what is html interview">
-          <div class="card-top">
-            <span class="priority green">Basic Interview</span>
-            <span class="usage most">Most Used</span>
-            <h4>33. What is HTML?</h4>
-            <div class="mini">Definition</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><p>HTML = HyperText Markup Language. এটা webpage structure তৈরি করার markup language।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>Common Entities</h3>
+          <p class="theory">
+            &lt;, &gt;, &amp; এই character-গুলো HTML syntax-এর অংশ হওয়ায় content হিসেবে দেখাতে entity ব্যবহার করতে হয়। এছাড়া non-breaking space, copyright, trademark ইত্যাদির জন্যও entity ব্যবহৃত হয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&amp;lt;  = &lt;
+&amp;gt;  = &gt;
+&amp;amp; = &amp;
+&amp;nbsp; = non-breaking space
+&amp;copy; = ©</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20 OBSOLETE -->
+    <section id="obsolete" class="section">
+      <div class="section-head">
+        <div>
+          <h2>20. Obsolete / Deprecated Elements</h2>
+          <p>পুরনো HTML-এ ব্যবহৃত কিন্তু modern HTML-এ discouraged বা deprecated tag জানা দরকার, যাতে legacy code দেখলে চিনতে পারেন।</p>
+        </div>
+      </div>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;font&gt;, &lt;center&gt;, &lt;marquee&gt;</h3>
+          <p class="theory">
+            আগে text color/size, alignment, scrolling text-এর জন্য এসব tag ব্যবহৃত হতো। এখন CSS দিয়ে এসব কাজ করা হয়। Modern project-এ এগুলো ব্যবহার করা উচিত নয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;!-- Deprecated --&gt;
+&lt;center&gt;পুরনো পদ্ধতি&lt;/center&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="semantic html interview why use semantic">
-          <div class="card-top">
-            <span class="priority green">Important Interview</span>
-            <span class="usage mid">Mid Use</span>
-            <h4>34. Why Semantic HTML?</h4>
-            <div class="mini">Meaning + SEO + accessibility</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><p>Semantic HTML content-এর meaning পরিষ্কার করে, SEO improve করে, accessibility better করে।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;acronym&gt;, &lt;big&gt;, &lt;tt&gt;</h3>
+          <p class="theory">
+            acronym-এর জায়গায় abbr, big-এর জায়গায় CSS font-size, tt-এর জায়গায় code বা CSS monospace ব্যবহৃত হয়। Legacy tutorial-এ এগুলো দেখতে পারেন।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;!-- Deprecated --&gt;
+&lt;big&gt;Old Text&lt;/big&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="id vs class interview html">
-          <div class="card-top">
-            <span class="priority green">Basic Interview</span>
-            <span class="usage most">Most Used</span>
-            <h4>35. id vs class</h4>
-            <div class="mini">unique vs reusable</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><p>id unique element-এর জন্য, class reusable multiple element-এর জন্য।</p></div>
-          </div>
+        <div class="card">
+          <span class="badge less">Less Use</span>
+          <h3>&lt;frameset&gt;, &lt;frame&gt;, &lt;noframes&gt;</h3>
+          <p class="theory">
+            পুরনো websites-এ page frame-based layout-এর জন্য frameset system ব্যবহার হতো। এখন এটি obsolete। Modern web-এ iframe ছাড়া frame-based layout ব্যবহার করা হয় না।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;!-- Obsolete frame system --&gt;</code></pre>
         </div>
 
-        <div class="card searchable" data-search="alt attribute interview accessibility seo">
-          <div class="card-top">
-            <span class="priority green">Important Interview</span>
-            <span class="usage most">Most Used</span>
-            <h4>36. Why alt attribute important?</h4>
-            <div class="mini">Accessibility + SEO</div>
-          </div>
-          <div class="card-body">
-            <div class="block"><p>Alt image describe করে, screen reader user-দের help করে, এবং SEO context improve করে।</p></div>
-          </div>
+      </div>
+    </section>
+
+    <!-- 21 BEST PRACTICES -->
+    <section id="best-practices" class="section">
+      <div class="section-head">
+        <div>
+          <h2>21. HTML Best Practices</h2>
+          <p>একজন beginner থেকে professional developer হতে হলে শুধু tag মুখস্থ করলে হবে না; clean, semantic, maintainable HTML লিখতে হবে।</p>
         </div>
+      </div>
+      <div class="grid">
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Use Semantic HTML First</h3>
+          <p class="theory">
+            সবকিছু div দিয়ে না বানিয়ে header, nav, main, section, article, footer ইত্যাদি semantic tag ব্যবহার করো। এতে project maintain করা সহজ হয় এবং SEO/accessibility উন্নত হয়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;Post Title&lt;/h2&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Always Write Clean Structure</h3>
+          <p class="theory">
+            Proper indentation, meaningful class naming, logical nesting, smaller sections—এসব maintainability বাড়ায়। Clean HTML team project-এ অনেক গুরুত্বপূর্ণ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;section class="hero"&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;Intro text&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge most">Most Use</span>
+          <h3>Accessibility Matters</h3>
+          <p class="theory">
+            Image-এ alt, form-এ label, button-এ meaningful text, keyboard usability, correct heading order—এসব ভালো practice নয় শুধু, বরং responsible web development-এর অংশ।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;button type="submit"&gt;রেজিস্টার করুন&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>Separate Structure, Style, Behavior</h3>
+          <p class="theory">
+            HTML structure-এর জন্য, CSS style-এর জন্য, JavaScript behavior-এর জন্য। এই separation বজায় রাখলে code clean থাকে, debug করা সহজ হয়, reuse করা যায়।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>&lt;p class="warning"&gt;সতর্কবার্তা&lt;/p&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <span class="badge mid">Mid Use</span>
+          <h3>Validate Your HTML</h3>
+          <p class="theory">
+            W3C Validator দিয়ে HTML check করলে unclosed tag, invalid nesting, wrong attribute usage ইত্যাদি ধরা যায়। Beginner-দের জন্য validation খুব helpful habit।
+          </p>
+          <span class="example-label">উদাহরণ:</span>
+          <pre><code>https://validator.w3.org/</code></pre>
+        </div>
+
+      </div>
+
+      <div class="note">
+        <strong>শেষ কথা:</strong> HTML শেখার সবচেয়ে ভালো উপায় হলো practice। প্রতিটি section থেকে ১–২টি ছোট mini project বানাও। যেমন:
+        personal profile page, contact form, pricing table, blog article layout, product card, FAQ section, video page, registration form, portfolio homepage।
       </div>
     </section>
 
     <div class="footer">
-      HTML Master Dashboard Full Pro Version • Bangla Structured Expert Note
+      Made for serious HTML learning • Beginner to Expert Reference • Bangla Notes Dashboard
     </div>
-  </main>
-</div>
-
-<script>
-  const searchInput = document.getElementById("searchInput");
-  const cards = document.querySelectorAll(".searchable");
-
-  searchInput.addEventListener("input", function () {
-    const value = this.value.toLowerCase().trim();
-    cards.forEach(card => {
-      const text = card.getAttribute("data-search").toLowerCase();
-      if (text.includes(value)) {
-        card.classList.remove("hide");
-      } else {
-        card.classList.add("hide");
-      }
-    });
-  });
-</script>
+  </div>
 </body>
 </html>
