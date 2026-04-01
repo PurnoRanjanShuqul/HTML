@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML Master Dashboard - Bangla</title>
+  <title>HTML Master Dashboard Full Pro Version</title>
   <style>
     :root{
       --bg:#f8fafc;
       --sidebar:#0f172a;
       --sidebar2:#111827;
       --primary:#2563eb;
-      --primary-soft:#dbeafe;
-      --success:#16a34a;
-      --success-soft:#dcfce7;
-      --warning:#d97706;
-      --warning-soft:#fef3c7;
       --danger:#dc2626;
+      --warning:#d97706;
+      --success:#16a34a;
       --danger-soft:#fee2e2;
+      --warning-soft:#fef3c7;
+      --success-soft:#dcfce7;
       --text:#0f172a;
       --muted:#475569;
       --card:#ffffff;
@@ -24,15 +23,8 @@
       --shadow:0 10px 25px rgba(15, 23, 42, 0.08);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
 
     body{
       font-family:"Segoe UI", Arial, sans-serif;
@@ -42,7 +34,7 @@
 
     .app{
       display:grid;
-      grid-template-columns:300px 1fr;
+      grid-template-columns:320px 1fr;
       min-height:100vh;
     }
 
@@ -63,7 +55,7 @@
     }
 
     .brand h1{
-      font-size:25px;
+      font-size:26px;
       line-height:1.3;
     }
 
@@ -71,7 +63,7 @@
       margin-top:8px;
       color:#cbd5e1;
       font-size:14px;
-      line-height:1.6;
+      line-height:1.7;
     }
 
     .nav-title{
@@ -111,9 +103,7 @@
       border:1px solid rgba(255,255,255,.08);
     }
 
-    .main{
-      padding:28px;
-    }
+    .main{padding:28px;}
 
     .topbar{
       background:rgba(255,255,255,.88);
@@ -137,7 +127,7 @@
     .topbar p{
       color:var(--muted);
       line-height:1.8;
-      max-width:850px;
+      max-width:860px;
     }
 
     .tools{
@@ -147,7 +137,7 @@
     }
 
     .search{
-      width:320px;
+      width:340px;
       max-width:100%;
       padding:12px 14px;
       border:1px solid #cbd5e1;
@@ -167,9 +157,7 @@
       transition:.25s;
     }
 
-    .btn:hover{
-      background:#1d4ed8;
-    }
+    .btn:hover{background:#1d4ed8;}
 
     .stats{
       display:grid;
@@ -193,12 +181,12 @@
     }
 
     .stat .big{
-      font-size:26px;
+      font-size:24px;
       font-weight:700;
     }
 
     .section{
-      margin-bottom:36px;
+      margin-bottom:38px;
     }
 
     .section-head{
@@ -211,7 +199,7 @@
     }
 
     .section-head h3{
-      font-size:27px;
+      font-size:28px;
     }
 
     .desc{
@@ -227,14 +215,15 @@
       font-weight:700;
     }
 
-    .essential{background:var(--danger-soft); color:var(--danger);}
-    .important{background:var(--warning-soft); color:var(--warning);}
-    .advanced{background:var(--success-soft); color:var(--success);}
+    .essential{background:var(--danger-soft);color:var(--danger);}
+    .important{background:var(--warning-soft);color:var(--warning);}
+    .advanced{background:var(--success-soft);color:var(--success);}
 
     .grid{
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:18px;
+      align-items:start;
     }
 
     .card{
@@ -243,6 +232,7 @@
       box-shadow:var(--shadow);
       border-radius:20px;
       overflow:hidden;
+      align-self:start;
     }
 
     .card-top{
@@ -251,18 +241,22 @@
       border-bottom:1px solid #dbeafe;
     }
 
-    .priority{
+    .priority,.usage{
       display:inline-block;
       margin-bottom:10px;
+      margin-right:8px;
       padding:6px 10px;
       border-radius:999px;
       font-size:12px;
       font-weight:700;
     }
 
-    .red{background:var(--danger-soft); color:var(--danger);}
-    .yellow{background:var(--warning-soft); color:var(--warning);}
-    .green{background:var(--success-soft); color:var(--success);}
+    .red{background:var(--danger-soft);color:var(--danger);}
+    .yellow{background:var(--warning-soft);color:var(--warning);}
+    .green{background:var(--success-soft);color:var(--success);}
+    .most{background:#dbeafe;color:#1d4ed8;}
+    .mid{background:#ede9fe;color:#6d28d9;}
+    .less{background:#ecfccb;color:#3f6212;}
 
     .card-top h4{
       font-size:21px;
@@ -276,7 +270,8 @@
 
     .card-body{
       padding:18px;
-      display:grid;
+      display:flex;
+      flex-direction:column;
       gap:14px;
     }
 
@@ -286,13 +281,13 @@
       margin-bottom:6px;
     }
 
-    .block p, .block li{
+    .block p,.block li{
       color:#334155;
-      line-height:1.75;
+      line-height:1.78;
       font-size:15px;
     }
 
-    .block ul, .block ol{
+    .block ul,.block ol{
       padding-left:18px;
     }
 
@@ -314,10 +309,7 @@
       padding:20px;
     }
 
-    .roadmap ol{
-      padding-left:20px;
-    }
-
+    .roadmap ol{padding-left:20px;}
     .roadmap li{
       margin-bottom:10px;
       line-height:1.8;
@@ -331,9 +323,7 @@
       font-size:14px;
     }
 
-    .hide{
-      display:none !important;
-    }
+    .hide{display:none !important;}
 
     @media (max-width:1100px){
       .stats{grid-template-columns:repeat(2,1fr);}
@@ -342,7 +332,7 @@
 
     @media (max-width:900px){
       .app{grid-template-columns:1fr;}
-      .sidebar{height:auto; position:relative;}
+      .sidebar{height:auto;position:relative;}
     }
 
     @media (max-width:600px){
@@ -360,254 +350,458 @@
   </style>
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <div class="brand">
-        <h1>HTML Master<br>Dashboard</h1>
-        <p>HTML এর complete structured learning system — overlap ছাড়া topic-wise master note</p>
-      </div>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>HTML Master Dashboard<br>Full Pro Version</h1>
+      <p>HTML expert হওয়ার জন্য complete structured dashboard — essential, important, advanced, Bangla note সহ</p>
+    </div>
 
-      <div class="nav-title">Master Navigation</div>
-      <nav class="nav">
-        <a href="#overview">Overview</a>
-        <a href="#roadmap">Roadmap & Priority</a>
-        <a href="#document-foundation">Document Foundation</a>
-        <a href="#text-content">Text & Content</a>
-        <a href="#media-navigation">Navigation & Media Basics</a>
-        <a href="#lists-tables">Lists & Tables</a>
-        <a href="#forms-system">Forms & Input System</a>
-        <a href="#attributes">Attributes</a>
-        <a href="#semantic">Semantic HTML</a>
-        <a href="#accessibility">Accessibility</a>
-        <a href="#seo">SEO Basics</a>
-        <a href="#advanced-tags">Advanced Useful Tags</a>
-        <a href="#practice-projects">Practice Projects</a>
-        <a href="#interview">Interview Preparation</a>
-        <a href="#final-example">Final Full Example</a>
-      </nav>
+    <div class="nav-title">Navigation</div>
+    <nav class="nav">
+      <a href="#overview">Overview</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#document-structure">Document Structure</a>
+      <a href="#text-content">Text & Content</a>
+      <a href="#links-media">Links & Media Basics</a>
+      <a href="#lists">Lists</a>
+      <a href="#tables">Tables</a>
+      <a href="#forms">Forms & Inputs</a>
+      <a href="#attributes">Attributes</a>
+      <a href="#semantic">Semantic HTML</a>
+      <a href="#accessibility">Accessibility</a>
+      <a href="#seo">SEO Basics</a>
+      <a href="#advanced-tags">Advanced Useful Tags</a>
+      <a href="#best-practices">Best Practices</a>
+      <a href="#projects">Practice Projects</a>
+      <a href="#interview">Interview Revision</a>
+    </nav>
 
-      <div class="side-note">
-        <strong>Study Rule:</strong><br>
-        1) Essential topics আগে strong করো<br>
-        2) তারপর Important topics<br>
-        3) তারপর Advanced polish<br><br>
-        Search box দিয়ে যেকোন topic filter করতে পারবা।
-      </div>
-    </aside>
+    <div class="side-note">
+      <strong>Usage Indicator:</strong><br>
+      Most Used = প্রায় সব project-এ লাগে<br>
+      Mid Use = strong developer হতে জানা দরকার<br>
+      Less Use = rare/advanced but useful
+    </div>
+  </aside>
 
-    <main class="main">
-      <section class="topbar" id="overview">
-        <div>
-          <h2>HTML Master Dashboard</h2>
-          <p>
-            এই dashboard-এ HTML-এর সব core topic একসাথে আছে — কিন্তু overlap ছাড়া clean structure-এ।
-            Beginner থেকে pro/expert level পর্যন্ত কী কী শিখতে হবে, কোনটা আগে, কোনটা পরে, কোনটা most important —
-            সবকিছু এখানে category-wise, importance-wise, Bangla short details সহ সাজানো আছে।
-          </p>
-        </div>
-        <div class="tools">
-          <input id="searchInput" class="search" type="text" placeholder="Search topic... যেমন: form, semantic, alt, table, seo">
-          <button class="btn" onclick="window.print()">Print / Save PDF</button>
-        </div>
-      </section>
-
-      <section class="stats">
-        <div class="stat">
-          <h4>Level 1</h4>
-          <div class="big">Essential</div>
-        </div>
-        <div class="stat">
-          <h4>Level 2</h4>
-          <div class="big">Important</div>
-        </div>
-        <div class="stat">
-          <h4>Level 3</h4>
-          <div class="big">Advanced</div>
-        </div>
-        <div class="stat">
-          <h4>Goal</h4>
-          <div class="big">HTML Expert</div>
-        </div>
-      </section>
-
-      <section class="section" id="roadmap">
-        <div class="section-head">
-          <h3>Roadmap & Priority</h3>
-          <span class="badge essential">Start Here</span>
-        </div>
-        <p class="desc">
-          HTML expert হতে হলে সবকিছু random ভাবে না পড়ে, structured order follow করা best।
+  <main class="main">
+    <section class="topbar" id="overview">
+      <div>
+        <h2>HTML Master Dashboard Full Pro Version</h2>
+        <p>
+          এই dashboard-এ HTML-এর major topics logically সাজানো হয়েছে।
+          Beginner থেকে expert level পর্যন্ত essential roadmap, tag groups, attributes, forms,
+          semantic HTML, accessibility, SEO, advanced useful tags — সবকিছু category-wise দেওয়া আছে।
         </p>
-        <div class="roadmap">
-          <ol>
-            <li><strong>Document Foundation</strong> — basic page structure বুঝো</li>
-            <li><strong>Text & Content</strong> — heading, paragraph, inline vs block elements</li>
-            <li><strong>Navigation & Media Basics</strong> — links + images</li>
-            <li><strong>Lists & Tables</strong> — structured content</li>
-            <li><strong>Forms & Input System</strong> — user input mastery</li>
-            <li><strong>Attributes</strong> — tag control করার system</li>
-            <li><strong>Semantic HTML</strong> — meaningful structure</li>
-            <li><strong>Accessibility</strong> — usable for everyone</li>
-            <li><strong>SEO Basics</strong> — search-friendly HTML</li>
-            <li><strong>Advanced Useful Tags</strong> — expert polish</li>
-            <li><strong>Practice Projects</strong> — practical mastery</li>
-            <li><strong>Interview Preparation</strong> — revision + confidence</li>
-          </ol>
-        </div>
-      </section>
+      </div>
+      <div class="tools">
+        <input id="searchInput" class="search" type="text" placeholder="Search... যেমন: form, semantic, alt, table, article">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </section>
 
-      <section class="section" id="document-foundation">
-        <div class="section-head">
-          <h3>Document Foundation</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">HTML page-এর মূল skeleton এখানে থাকে।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="doctype html html head body title meta link script foundation structure">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>1. Basic Document Structure</h4>
-              <div class="mini">doctype, html, head, body, title, meta, link, script</div>
+    <section class="stats">
+      <div class="stat"><h4>Foundation</h4><div class="big">Structure + Text</div></div>
+      <div class="stat"><h4>Core</h4><div class="big">Links + Forms</div></div>
+      <div class="stat"><h4>Pro Level</h4><div class="big">Semantic + SEO</div></div>
+      <div class="stat"><h4>Goal</h4><div class="big">HTML Expert</div></div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-head">
+        <h3>HTML Learning Roadmap</h3>
+        <span class="badge essential">Start Here</span>
+      </div>
+      <p class="desc">HTML expert হতে হলে নিচের order follow করলে learning much clearer হবে।</p>
+      <div class="roadmap">
+        <ol>
+          <li>Document Structure</li>
+          <li>Text & Content Tags</li>
+          <li>Links & Images</li>
+          <li>Lists & Tables</li>
+          <li>Forms & Input System</li>
+          <li>Attributes</li>
+          <li>Semantic HTML</li>
+          <li>Accessibility Basics</li>
+          <li>SEO Basics</li>
+          <li>Advanced Useful Tags</li>
+          <li>Practice Projects + Interview Revision</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="document-structure">
+      <div class="section-head">
+        <h3>Document Structure</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="doctype html html head body title meta link script">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>1. Basic HTML Document Structure</h4>
+            <div class="mini">doctype, html, head, body, title, meta, link, script</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                একটি HTML page-এর মূল skeleton এই structure দিয়ে তৈরি হয়।
+                Browser document কীভাবে interpret করবে, page title কী হবে,
+                metadata কোথায় থাকবে, visible content কোথায় থাকবে — সবকিছু এই foundation-এর উপর দাঁড়ায়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>একটি HTML file কীভাবে শুরু হয়, browser কীভাবে page বুঝে, CSS/JS কোথায় যুক্ত হয়—সব এখানে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;!DOCTYPE html&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                প্রতিটি HTML file-এর শুরুতে এই structure ব্যবহার করা হয়। এটা ছাড়া clean page setup হয় না।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                অনেক beginner body/head order গুলিয়ে ফেলে বা meta charset দিতে ভুলে যায়।
+                শুরু থেকেই complete structure habit করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;My Page&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  Hello
+  &lt;h1&gt;Hello&lt;/h1&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="text-content">
-        <div class="section-head">
-          <h3>Text & Content</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">Text structure clean না হলে কোনো page professional লাগে না।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="h1 h2 h3 h4 h5 h6 p strong em br hr span div text content">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>2. Text Content Tags</h4>
-              <div class="mini">h1-h6, p, strong, em, br, hr, span, div</div>
+        <div class="card searchable" data-search="head body difference metadata visible content">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>2. Head vs Body</h4>
+            <div class="mini">metadata vs visible content</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                <strong>head</strong> অংশে metadata থাকে — title, meta, CSS links, scripts reference।
+                <strong>body</strong> অংশে user যেটা browser-এ দেখে, সেই visible content থাকে।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Heading, paragraph, importance, emphasis, inline text targeting এবং content grouping এর জন্য।</p>
-              </div>
-              <div class="block">
-                <h5>Key Focus</h5>
-                <ul>
-                  <li>h1 সবচেয়ে important heading</li>
-                  <li>div = block container</li>
-                  <li>span = inline container</li>
-                  <li>strong/em semantic meaning দেয়</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Page setup-related info head-এ, actual content body-তে রাখো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Visible text বা image কখনো head-এর ভিতরে দিও না। Head setup-এর জন্য, body content-এর জন্য।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;head&gt;
+  &lt;title&gt;Portfolio&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="text-content">
+      <div class="section-head">
+        <h3>Text & Content</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="h1 h2 h3 h4 h5 h6 headings p paragraph strong em">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>3. Headings, Paragraph, Strong, Em</h4>
+            <div class="mini">h1-h6, p, strong, em</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Headings document hierarchy তৈরি করে, paragraph readable text group করে,
+                strong important meaning দেয়, em emphasis দেয়।
+                শুধু style না, semantic meaning-ও এখানে important।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Blog, article, landing page, card content — সব জায়গায় heading ও paragraph লাগে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Random heading level jump কোরো না। h1 → h2 → h3 logical order maintain করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;h1&gt;Main Title&lt;/h1&gt;
 &lt;p&gt;This is &lt;strong&gt;important&lt;/strong&gt; text.&lt;/p&gt;
-&lt;p&gt;I &lt;em&gt;really&lt;/em&gt; enjoy HTML.&lt;/p&gt;</code></pre>
-              </div>
+&lt;p&gt;I &lt;em&gt;really&lt;/em&gt; like HTML.&lt;/p&gt;</code></pre>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="media-navigation">
-        <div class="section-head">
-          <h3>Navigation & Media Basics</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">User navigation এবং visual content — দুটোই basic web skill।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="a anchor href navigation link img image src alt media basics">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>3. Links and Images</h4>
-              <div class="mini">a, img, href, src, alt</div>
+        <div class="card searchable" data-search="div span br hr inline block">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>4. Div, Span, Br, Hr</h4>
+            <div class="mini">containers and line/separator tags</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                <strong>div</strong> block-level container, <strong>span</strong> inline container।
+                <strong>br</strong> line break দেয়, <strong>hr</strong> section separator দেয়।
+                এগুলো layout এবং text grouping-এ খুব common।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Page navigation-এর জন্য link, visual content-এর জন্য image use হয়।</p>
-              </div>
-              <div class="block">
-                <h5>Key Focus</h5>
-                <ul>
-                  <li>href = কোথায় যাবে</li>
-                  <li>src = file source</li>
-                  <li>alt = image description</li>
-                </ul>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;a href="about.html"&gt;About&lt;/a&gt;
-&lt;img src="photo.jpg" alt="A student learning HTML"&gt;</code></pre>
-              </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Div দিয়ে section group করো, span দিয়ে text-এর ছোট অংশ target করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                সবকিছু div দিয়ে ভরিয়ে ফেলো না। যেখানে semantic tag দরকার, সেখানে semantic tag use করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;div&gt;
+  &lt;p&gt;My favorite color is &lt;span&gt;blue&lt;/span&gt;.&lt;/p&gt;
+  &lt;hr&gt;
+&lt;/div&gt;</code></pre>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="lists-tables">
-        <div class="section-head">
-          <h3>Lists & Tables</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">Structured information properly দেখাতে lists এবং tables লাগে।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="ul ol li list ordered unordered">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>4. Lists</h4>
-              <div class="mini">ul, ol, li</div>
+    <section class="section" id="links-media">
+      <div class="section-head">
+        <h3>Links & Media Basics</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="a href anchor links">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>5. Anchor Tag</h4>
+            <div class="mini">a, href</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Anchor tag hyperlink তৈরি করে। Website navigation, external website, section jump,
+                email link, downloadable file — সবকিছুর জন্য anchor essential।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Bullet বা numbered item group দেখানোর জন্য।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;ol&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Menu links, footer links, buttons-as-links, internal page navigation — everywhere।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Link target দেওয়ার জন্য href use হয়, src না। এটা beginner-দের common mistake।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;a href="https://example.com"&gt;Visit Site&lt;/a&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="img src alt image media">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>6. Image Tag</h4>
+            <div class="mini">img, src, alt</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Image add করার জন্য img use হয়। src file path দেয়, alt image describe করে।
+                Alt accessibility এবং SEO — দুইটার জন্যই very important।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Logo, profile photo, product image, banner, illustration—সব media image use case-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                img tag-এ href ব্যবহার করো না। আর meaningful alt text দিতে ভুলবে না।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;img src="photo.jpg" alt="Student learning HTML"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lists">
+      <div class="section-head">
+        <h3>Lists</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="ul ol li list ordered unordered">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>7. Ordered & Unordered Lists</h4>
+            <div class="mini">ul, ol, li</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                List structured item group দেখানোর সবচেয়ে simple semantic way।
+                Unordered list bullet-based, ordered list number-based।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Menu, features, steps, task list, requirements list — সবখানে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                List item সবসময় li-এর ভিতরে রাখো। ul বা ol-এর direct plain text লিখো না।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;ol&gt;
   &lt;li&gt;Learn HTML&lt;/li&gt;
   &lt;li&gt;Practice Daily&lt;/li&gt;
 &lt;/ol&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="table tr th td thead tbody caption tables">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>5. Tables</h4>
-              <div class="mini">table, tr, th, td, thead, tbody, caption</div>
+        <div class="card searchable" data-search="definition list dl dt dd">
+          <div class="card-top">
+            <span class="priority yellow">Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>8. Definition List</h4>
+            <div class="mini">dl, dt, dd</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Definition list term এবং তার explanation semanticভাবে দেখাতে use হয়।
+                এটা সাধারণ list-এর মতো না — glossary type content-এর জন্য better।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Row-column data দেখানোর জন্য table use করা হয়।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;table&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Glossary, FAQ-like term definition, metadata display-তে useful।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Normal bullet list-এর জায়গায় definition list use করো না। Use case অনুযায়ী tag choose করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Markup language for web pages&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tables">
+      <div class="section-head">
+        <h3>Tables</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="table tr th td caption thead tbody">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>9. Basic Table Structure</h4>
+            <div class="mini">table, tr, th, td, caption, thead, tbody</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Table row-column data show করার জন্য use হয়।
+                Caption table title দেয়, th header cell, td data cell।
+                Structured tabular data-এর জন্য table best।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Result sheet, pricing table, report, schedule, score table — এসব জায়গায়।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Layout করার জন্য table use করো না। Table শুধু real tabular data-এর জন্য।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;table&gt;
   &lt;tr&gt;
     &lt;th&gt;Name&lt;/th&gt;
     &lt;th&gt;Age&lt;/th&gt;
@@ -617,628 +811,861 @@
     &lt;td&gt;20&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="forms-system">
-        <div class="section-head">
-          <h3>Forms & Input System</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">HTML expert হতে forms খুব ভালোভাবে জানা লাগবে।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="form input label button textarea select option forms system">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>6. Core Form Elements</h4>
-              <div class="mini">form, input, label, button, textarea, select, option</div>
+        <div class="card searchable" data-search="thead tbody tfoot table sections">
+          <div class="card-top">
+            <span class="priority yellow">Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>10. Table Sections</h4>
+            <div class="mini">thead, tbody, tfoot</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Table-এর logical parts আলাদা করতে thead, tbody, tfoot useful।
+                এতে code readable হয় এবং bigger table manage করা সহজ হয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>User data collect করার জন্য এই elements use হয়।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;form&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Large table, report table, summary row, footer row — এসব ক্ষেত্রে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Small table-এ না লাগলেও বড় data table-এ structure maintain করা ভালো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Item&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Book&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="forms">
+      <div class="section-head">
+        <h3>Forms & Inputs</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="form input label button textarea select option">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>11. Core Form Elements</h4>
+            <div class="mini">form, input, label, button, textarea, select, option</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                User input collect করার জন্য form system use হয়।
+                input single-line data নেয়, textarea multi-line data নেয়,
+                select dropdown choice দেয়, label field explain করে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Login, signup, contact form, feedback form, search form — সবখানে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Input-এর সাথে label link করতে for/id use করো। এটা accessibility-এর জন্য important।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;form&gt;
   &lt;label for="email"&gt;Email&lt;/label&gt;
   &lt;input id="email" type="email"&gt;
   &lt;button type="submit"&gt;Send&lt;/button&gt;
 &lt;/form&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="input types text email password number tel date file radio checkbox range color">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>7. Important Input Types</h4>
-              <div class="mini">text, email, password, number, tel, file, radio, checkbox, date, range, color</div>
+        <div class="card searchable" data-search="input types text email password checkbox radio file date">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>12. Important Input Types</h4>
+            <div class="mini">text, email, password, checkbox, radio, file, date</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Input type field-এর purpose define করে।
+                Email field email validation hint দেয়, password hidden input দেয়,
+                checkbox multiple choice, radio single choice, file upload file নেয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Different kind of data নেওয়ার জন্য different input type ব্যবহার হয়।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;input type="text"&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Registration, settings panel, survey, upload form — সব জায়গায় use হয়।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                সব input-এ type="text" use না করে correct type use করো। এতে usability improve হয়।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;input type="text"&gt;
 &lt;input type="email"&gt;
 &lt;input type="checkbox"&gt;
 &lt;input type="date"&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="action method get post enctype fieldset legend datalist advanced form concepts">
-            <div class="card-top">
-              <span class="priority yellow">Very Important</span>
-              <h4>8. Form Submission & Structure</h4>
-              <div class="mini">action, method, enctype, fieldset, legend, datalist</div>
+        <div class="card searchable" data-search="action method get post enctype fieldset legend datalist">
+          <div class="card-top">
+            <span class="priority yellow">Very Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>13. Form Submission & Grouping</h4>
+            <div class="mini">action, method, enctype, fieldset, legend, datalist</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Form কোথায় যাবে, কীভাবে data পাঠাবে, আর form sections কিভাবে group হবে —
+                তা action, method, fieldset, legend-এর মাধ্যমে control হয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Form কোথায় যাবে, কীভাবে submit হবে, আর form group কিভাবে organize হবে তা এখানে শিখবে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;form action="/submit" method="post"&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Real backend-connected forms বা structured forms-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                File upload থাকলে enctype ভুলে যেও না। আর related inputs group করতে fieldset useful।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;form action="/submit" method="post"&gt;
   &lt;fieldset&gt;
     &lt;legend&gt;Personal Info&lt;/legend&gt;
     &lt;input type="text"&gt;
   &lt;/fieldset&gt;
 &lt;/form&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="attributes">
-        <div class="section-head">
-          <h3>Attributes</h3>
-          <span class="badge essential">Must Master</span>
-        </div>
-        <p class="desc">Tag-এর power আসে attributes থেকে। এগুলো আলাদা category হিসেবে mastery করা দরকার।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="href src alt id class title style core attributes">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>9. Core Attributes</h4>
-              <div class="mini">href, src, alt, id, class, title, style</div>
+    <section class="section" id="attributes">
+      <div class="section-head">
+        <h3>Attributes</h3>
+        <span class="badge essential">Must Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="href src alt id class title">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>14. Core Attributes</h4>
+            <div class="mini">href, src, alt, id, class, title</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Attributes tag-কে extra meaning বা functionality দেয়।
+                href link target দেয়, src file source দেয়,
+                alt image description দেয়, class/id CSS ও JS targeting-এ useful।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Link, image, element targeting, title, quick styling — এগুলোর জন্য সবচেয়ে common attributes।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;a href="about.html" class="nav-link"&gt;About&lt;/a&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Link, image, styling, scripting, tooltip text — সব basic web work-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                href vs src confuse করো না। আর alt attribute empty না রেখে meaningful রাখো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;a href="about.html" class="nav-link"&gt;About&lt;/a&gt;
 &lt;img src="logo.png" alt="Website logo"&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="name value placeholder type required readonly disabled checked selected form attributes">
-            <div class="card-top">
-              <span class="priority red">Highest Priority</span>
-              <h4>10. Form Attributes</h4>
-              <div class="mini">name, value, placeholder, type, required, readonly, disabled, checked, selected</div>
+        <div class="card searchable" data-search="name value placeholder required checked selected type">
+          <div class="card-top">
+            <span class="priority red">Highest Priority</span>
+            <span class="usage most">Most Used</span>
+            <h4>15. Form Attributes</h4>
+            <div class="mini">name, value, placeholder, required, checked, selected, type</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Form field-এর behavior control করতে এই attributes দরকার।
+                Required mandatory field করে, placeholder hint দেয়,
+                checked/selected default selected state দেয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Form field এর behavior control করতে use হয়।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;input type="text" name="username" placeholder="Enter name" required&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                সব practical form-এ এই attributes useful।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Placeholder label-এর replacement না। Label use করতেই হবে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;input type="text" name="username" placeholder="Enter name" required&gt;
 &lt;input type="checkbox" checked&gt;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="global attributes hidden tabindex lang dir data attributes">
-            <div class="card-top">
-              <span class="priority yellow">Important</span>
-              <h4>11. Global Attributes</h4>
-              <div class="mini">hidden, tabindex, lang, dir, data-*</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>অনেক tag-এ use করা যায় এবং accessibility/custom behavior-এ useful।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;p lang="bn" data-topic="html"&gt;বাংলা লেখা&lt;/p&gt;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="target rel download width height loading useful special attributes">
-            <div class="card-top">
-              <span class="priority yellow">Important</span>
-              <h4>12. Useful Special Attributes</h4>
-              <div class="mini">target, rel, download, width, height, loading</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Image optimization, file download, new tab, external links নিরাপদভাবে handle করতে useful।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;a href="file.pdf" download&gt;Download&lt;/a&gt;
-&lt;img src="photo.jpg" alt="Photo" loading="lazy" width="300"&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="semantic">
-        <div class="section-head">
-          <h3>Semantic HTML</h3>
-          <span class="badge important">Very Important</span>
-        </div>
-        <p class="desc">এই section-এ শুধু meaning-based layout structure রাখা হয়েছে। Forms বা text details এখানে repeat করা হয়নি।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="header nav main footer semantic page layout">
-            <div class="card-top">
-              <span class="priority yellow">Very Important</span>
-              <h4>13. Page Layout Semantics</h4>
-              <div class="mini">header, nav, main, footer</div>
+        <div class="card searchable" data-search="lang dir hidden tabindex data attributes">
+          <div class="card-top">
+            <span class="priority yellow">Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>16. Global Attributes</h4>
+            <div class="mini">lang, dir, hidden, tabindex, data-*</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                অনেক HTML element-এই use করা যায় এমন common attributes-কে global attributes বলে।
+                এগুলো accessibility, behavior, data binding-এ useful।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>পুরো page-এর major layout areas define করে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;header&gt;Header&lt;/header&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Language declaration, hidden content, JS custom data storage, keyboard order control-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Data attributes custom info store করতে useful, but unnecessary random use avoid করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;p lang="bn" data-topic="html"&gt;বাংলা লেখা&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="semantic">
+      <div class="section-head">
+        <h3>Semantic HTML</h3>
+        <span class="badge important">Very Important</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="header nav main footer semantic layout">
+          <div class="card-top">
+            <span class="priority yellow">Very Important</span>
+            <span class="usage most">Most Used</span>
+            <h4>17. Layout Semantics</h4>
+            <div class="mini">header, nav, main, footer</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Semantic tags content-এর meaning clearly বোঝায়।
+                Header top section, nav navigation links, main main content, footer bottom info represent করে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                প্রায় সব modern website layout-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                সব layout div দিয়ে না বানিয়ে meaningful semantic tag use করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;header&gt;Header&lt;/header&gt;
 &lt;nav&gt;Menu&lt;/nav&gt;
-&lt;main&gt;Content&lt;/main&gt;
+&lt;main&gt;Main Content&lt;/main&gt;
 &lt;footer&gt;Footer&lt;/footer&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="section article aside figure figcaption content semantics">
-            <div class="card-top">
-              <span class="priority yellow">Very Important</span>
-              <h4>14. Content Semantics</h4>
-              <div class="mini">section, article, aside, figure, figcaption</div>
+        <div class="card searchable" data-search="section article aside figure figcaption">
+          <div class="card-top">
+            <span class="priority yellow">Very Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>18. Content Semantics</h4>
+            <div class="mini">section, article, aside, figure, figcaption</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Section related content group করে, article independent content,
+                aside side content, figure media group, figcaption media caption দেয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Related content, standalone content, side info, captioned media — এগুলো meaningfulভাবে show করে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;section&gt;
-  &lt;article&gt;Blog content&lt;/article&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Blog, news page, content-heavy page, documentation, learning site-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Every div-কে section বানিয়ে ফেলো না। Real logical grouping থাকলে semantic tag use করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;section&gt;
+  &lt;article&gt;Blog post&lt;/article&gt;
   &lt;aside&gt;Related links&lt;/aside&gt;
 &lt;/section&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="accessibility">
-        <div class="section-head">
-          <h3>Accessibility</h3>
-          <span class="badge important">Very Important</span>
-        </div>
-        <p class="desc">এই section-এ শুধু accessibility rules রাখা হয়েছে — tags repeat না করে principles-based explanation।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="alt labels headings order accessibility basics">
-            <div class="card-top">
-              <span class="priority yellow">Must Follow</span>
-              <h4>15. Core Accessibility Rules</h4>
-              <div class="mini">alt text, labels, heading order</div>
+    <section class="section" id="accessibility">
+      <div class="section-head">
+        <h3>Accessibility</h3>
+        <span class="badge important">Very Important</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="alt label headings order accessibility">
+          <div class="card-top">
+            <span class="priority yellow">Must Follow</span>
+            <span class="usage most">Most Used</span>
+            <h4>19. Accessibility Basics</h4>
+            <div class="mini">alt, labels, heading order</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Accessibility মানে website যেন সবার জন্য usable হয়।
+                Alt text, proper form labels, logical heading order — এগুলো accessibility-এর foundation।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Image-এ alt, form-এ label, এবং logical heading order maintain করা accessibility-এর foundation।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;label for="name"&gt;Name&lt;/label&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                সব image, সব form, সব meaningful page structure-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Placeholder থাকলেই label দরকার নেই — এটা ভুল। Label must use।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;label for="name"&gt;Name&lt;/label&gt;
 &lt;input id="name" type="text"&gt;
 &lt;img src="user.jpg" alt="User profile photo"&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="use correct element button link accessibility semantics">
-            <div class="card-top">
-              <span class="priority yellow">Important</span>
-              <h4>16. Use the Right Element for the Right Job</h4>
-              <div class="mini">button for actions, anchor for navigation</div>
+        <div class="card searchable" data-search="button vs link correct element accessibility">
+          <div class="card-top">
+            <span class="priority yellow">Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>20. Use the Right Element</h4>
+            <div class="mini">button for action, anchor for navigation</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                HTML element-এর meaning অনুযায়ী use করা accessibility ও usability improve করে।
+                Button action trigger করে, link navigation করে।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>যা click করলে অন্য page-এ যায় তা link, আর যা action trigger করে তা button হওয়া উচিত।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;a href="about.html"&gt;Go to About&lt;/a&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Page change হলে anchor, popup/open action হলে button use করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Anchor tag-কে fake button বানানো avoid করো যদি actual navigation না থাকে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;a href="about.html"&gt;Go to About&lt;/a&gt;
 &lt;button type="button"&gt;Open Menu&lt;/button&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="seo">
-        <div class="section-head">
-          <h3>SEO Basics</h3>
-          <span class="badge important">Important</span>
-        </div>
-        <p class="desc">SEO section-এ শুধু search visibility related HTML রাখা হয়েছে।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="title meta description seo basics">
-            <div class="card-top">
-              <span class="priority yellow">High Impact</span>
-              <h4>17. Title and Meta Description</h4>
-              <div class="mini">title, meta description</div>
+    <section class="section" id="seo">
+      <div class="section-head">
+        <h3>SEO Basics</h3>
+        <span class="badge important">Important</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="title meta description seo">
+          <div class="card-top">
+            <span class="priority yellow">High Impact</span>
+            <span class="usage most">Most Used</span>
+            <h4>21. Title & Meta Description</h4>
+            <div class="mini">title, meta description</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Search engine page topic বুঝতে title ও meta description helpful।
+                Browser tab-এ title দেখা যায়, search result snippet-এ description useful হতে পারে।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Page topic search engine-কে বোঝাতে এবং search result snippet improve করতে সাহায্য করে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;title&gt;Learn HTML in Bangla&lt;/title&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                প্রতিটি important page-এর জন্য unique title এবং useful description দেওয়া উচিত।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                সব page-এ same title রাখো না। Page-specific title SEO-র জন্য better।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;title&gt;Learn HTML in Bangla&lt;/title&gt;
 &lt;meta name="description" content="Complete HTML learning guide in Bangla"&gt;</code></pre>
-              </div>
             </div>
           </div>
+        </div>
 
-          <div class="card searchable" data-search="seo heading structure semantic language image alt">
-            <div class="card-top">
-              <span class="priority yellow">Important</span>
-              <h4>18. SEO-Friendly Structure</h4>
-              <div class="mini">clear h1, logical headings, semantic layout, language declaration</div>
+        <div class="card searchable" data-search="heading structure semantic layout seo language alt">
+          <div class="card-top">
+            <span class="priority yellow">Important</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>22. SEO-Friendly Structure</h4>
+            <div class="mini">clear h1, semantic layout, language declaration</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Search engine content context বুঝতে headings, semantic layout, language declaration, image alt — সব useful।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Clear structure থাকলে search engine content context ভালোভাবে বুঝতে পারে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;html lang="en"&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Blog, landing page, tutorial page, service page — সব content-based page-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Multiple h1 বা random heading order avoid করো। Semantic structure clear রাখো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;html lang="en"&gt;
 &lt;h1&gt;HTML Form Tutorial&lt;/h1&gt;
 &lt;h2&gt;Input Types&lt;/h2&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="advanced-tags">
-        <div class="section-head">
-          <h3>Advanced Useful Tags</h3>
-          <span class="badge advanced">Better to Know</span>
-        </div>
-        <p class="desc">এই section-এ advanced tags রাখা হয়েছে যেগুলো essential না হলেও expert polish দেয়।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="details summary progress meter advanced tags">
-            <div class="card-top">
-              <span class="priority green">Useful Advanced</span>
-              <h4>19. Interactive Utility Tags</h4>
-              <div class="mini">details, summary, progress, meter</div>
+    <section class="section" id="advanced-tags">
+      <div class="section-head">
+        <h3>Advanced Useful Tags</h3>
+        <span class="badge advanced">Good to Know</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="details summary progress meter">
+          <div class="card-top">
+            <span class="priority green">Advanced Useful</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>23. Interactive Utility Tags</h4>
+            <div class="mini">details, summary, progress, meter</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                এসব tags interactive disclosure, progress display, measured values দেখাতে useful।
+                Simple UI interaction-এর জন্য built-in HTML solution দেয়।
+              </p>
             </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Collapsible info, progress display, measured values দেখাতে useful।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;details&gt;
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                FAQ, progress bar, score meter, hidden extra info section-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                সব hidden content-এর জন্য JavaScript দরকার হয় না — details/summary enough হতে পারে।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;details&gt;
   &lt;summary&gt;Read More&lt;/summary&gt;
   &lt;p&gt;Extra content&lt;/p&gt;
 &lt;/details&gt;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="audio video source picture iframe media embed advanced">
-            <div class="card-top">
-              <span class="priority green">Useful Advanced</span>
-              <h4>20. Advanced Media & Embed</h4>
-              <div class="mini">audio, video, source, picture, iframe</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Responsive image, external content embed, media playback-এর জন্য useful।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;video controls&gt;
-  &lt;source src="video.mp4" type="video/mp4"&gt;
-&lt;/video&gt;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="code pre blockquote q mark abbr time special content advanced">
-            <div class="card-top">
-              <span class="priority green">Useful Advanced</span>
-              <h4>21. Special Content Tags</h4>
-              <div class="mini">code, pre, blockquote, q, mark, abbr, time</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Documentation, quote, highlighted content, abbreviation, time info semanticভাবে দেখাতে।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;p&gt;Use &lt;code&gt;console.log()&lt;/code&gt;&lt;/p&gt;
-&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="canvas svg template noscript address cite advanced rare">
-            <div class="card-top">
-              <span class="priority green">Rare but Good</span>
-              <h4>22. Rare but Good to Know</h4>
-              <div class="mini">canvas, svg, template, noscript, address, cite</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <h5>Short Detail</h5>
-                <p>Graphics, reusable template, JS fallback, contact info, citation — এসব advanced scenario-তে useful।</p>
-              </div>
-              <div class="block">
-                <h5>Example</h5>
-                <pre><code>&lt;svg width="100" height="100"&gt;
-  &lt;circle cx="50" cy="50" r="40" fill="red"&gt;&lt;/circle&gt;
-&lt;/svg&gt;</code></pre>
-              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="section" id="practice-projects">
-        <div class="section-head">
-          <h3>Practice Projects</h3>
-          <span class="badge advanced">Practice to Master</span>
-        </div>
-        <p class="desc">Theory শেখার পর real practice না করলে expert হওয়া যায় না।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="portfolio project html practice about skills contact">
-            <div class="card-top">
-              <span class="priority green">Must Build</span>
-              <h4>23. Portfolio Project</h4>
-              <div class="mini">about, skills, image, contact form</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>নিজের profile site বানাও — এতে semantic structure, image, list, form সব practice হবে।</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="blog article project time figure headings">
-            <div class="card-top">
-              <span class="priority green">Very Useful</span>
-              <h4>24. Blog Article Project</h4>
-              <div class="mini">article, heading hierarchy, time, figure</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>Content-heavy page structure শিখতে blog page perfect practice।</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="table project marks report student data">
-            <div class="card-top">
-              <span class="priority green">Useful</span>
-              <h4>25. Table Project</h4>
-              <div class="mini">result sheet, report table</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>Row-column data cleanভাবে organize করার skill improve হবে।</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="form project registration contact input types">
-            <div class="card-top">
-              <span class="priority green">Must Build</span>
-              <h4>26. Form Project</h4>
-              <div class="mini">registration, contact, feedback</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>HTML form system strong করার জন্য registration/contact form build করো।</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="interview">
-        <div class="section-head">
-          <h3>Interview Preparation</h3>
-          <span class="badge advanced">Revision Ready</span>
-        </div>
-        <p class="desc">Short concept recall interview-এর জন্য অনেক useful।</p>
-        <div class="grid">
-          <div class="card searchable" data-search="what is html interview question">
-            <div class="card-top">
-              <span class="priority green">Basic Interview</span>
-              <h4>27. What is HTML?</h4>
-              <div class="mini">Definition</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>HTML = HyperText Markup Language. এটি webpage structure তৈরি করার language.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="semantic html interview why use semantic tags">
-            <div class="card-top">
-              <span class="priority green">Important Interview</span>
-              <h4>28. Why Semantic HTML?</h4>
-              <div class="mini">Meaning + SEO + accessibility</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>Semantic tags content-এর meaning দেয়, SEO improve করে, accessibility ভালো করে, code maintainable করে।</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="id vs class interview">
-            <div class="card-top">
-              <span class="priority green">Basic Interview</span>
-              <h4>29. id vs class</h4>
-              <div class="mini">Unique vs reusable</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p><strong>id</strong> unique, <strong>class</strong> reusable এবং multiple element-এ use করা যায়।</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card searchable" data-search="alt attribute interview accessibility seo">
-            <div class="card-top">
-              <span class="priority green">Important Interview</span>
-              <h4>30. Why alt attribute is important?</h4>
-              <div class="mini">Accessibility + SEO</div>
-            </div>
-            <div class="card-body">
-              <div class="block">
-                <p>Image describe করার জন্য, screen reader user-এর জন্য, আর search engine context বোঝার জন্য alt important।</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="final-example">
-        <div class="section-head">
-          <h3>Final Full Example</h3>
-          <span class="badge essential">Daily Revision</span>
-        </div>
-        <p class="desc">
-          এই example-এ document structure, semantic tags, headings, image, list, form, accessibility basics সব একসাথে আছে।
-        </p>
-        <div class="card">
+        <div class="card searchable" data-search="audio video source picture iframe">
           <div class="card-top">
-            <span class="priority red">Complete Practice Page</span>
-            <h4>HTML Master Revision Example</h4>
-            <div class="mini">Use this for daily practice</div>
+            <span class="priority green">Advanced Useful</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>24. Advanced Media & Embed</h4>
+            <div class="mini">audio, video, source, picture, iframe</div>
           </div>
           <div class="card-body">
-            <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;HTML Master Practice&lt;/title&gt;
-  &lt;meta name="description" content="HTML master practice example page"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-  &lt;header&gt;
-    &lt;h1&gt;My HTML Practice Site&lt;/h1&gt;
-    &lt;nav&gt;
-      &lt;a href="#"&gt;Home&lt;/a&gt;
-      &lt;a href="#"&gt;About&lt;/a&gt;
-      &lt;a href="#"&gt;Contact&lt;/a&gt;
-    &lt;/nav&gt;
-  &lt;/header&gt;
-
-  &lt;main&gt;
-    &lt;section&gt;
-      &lt;h2&gt;About Me&lt;/h2&gt;
-      &lt;p&gt;I am learning &lt;strong&gt;HTML&lt;/strong&gt; seriously.&lt;/p&gt;
-      &lt;img src="profile.jpg" alt="Profile image of the student" width="200"&gt;
-    &lt;/section&gt;
-
-    &lt;section&gt;
-      &lt;h2&gt;My Skills&lt;/h2&gt;
-      &lt;ul&gt;
-        &lt;li&gt;HTML&lt;/li&gt;
-        &lt;li&gt;CSS&lt;/li&gt;
-        &lt;li&gt;JavaScript&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/section&gt;
-
-    &lt;section&gt;
-      &lt;h2&gt;Contact Me&lt;/h2&gt;
-      &lt;form action="/submit" method="post"&gt;
-        &lt;label for="name"&gt;Name&lt;/label&gt;
-        &lt;input type="text" id="name" name="name" placeholder="Enter your name" required&gt;
-
-        &lt;label for="email"&gt;Email&lt;/label&gt;
-        &lt;input type="email" id="email" name="email" placeholder="Enter your email" required&gt;
-
-        &lt;label for="message"&gt;Message&lt;/label&gt;
-        &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
-
-        &lt;button type="submit"&gt;Send&lt;/button&gt;
-      &lt;/form&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
-
-  &lt;footer&gt;
-    &lt;p&gt;&copy; 2025 My Practice Site&lt;/p&gt;
-  &lt;/footer&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Media embed, responsive image serve, external page or video embed — এসবের জন্য useful advanced tags।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Course page, portfolio project, tutorial site, media-heavy layout-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                External embed-এ performance ও security consideration মাথায় রাখো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;video controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+            </div>
           </div>
         </div>
-      </section>
 
-      <div class="footer">
-        HTML Master Dashboard • All Core Topics • Non-overlapping Structured Learning • Bangla
+        <div class="card searchable" data-search="code pre blockquote q mark abbr time">
+          <div class="card-top">
+            <span class="priority green">Good to Know</span>
+            <span class="usage less">Less Use</span>
+            <h4>25. Special Content Tags</h4>
+            <div class="mini">code, pre, blockquote, q, mark, abbr, time</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Documentation, quotes, abbreviation explanation, highlighted content, date/time semanticভাবে দেখাতে এসব useful।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                Tutorial site, article page, notes, blog post, glossary-like content-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                শুধু style-এর জন্য mark/code use না করে semantic meaning থাকলে use করো।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;p&gt;Use &lt;code&gt;console.log()&lt;/code&gt;&lt;/p&gt;
+&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="canvas svg template noscript address cite">
+          <div class="card-top">
+            <span class="priority green">Rare but Good</span>
+            <span class="usage less">Less Use</span>
+            <h4>26. Rare but Good to Know</h4>
+            <div class="mini">canvas, svg, template, noscript, address, cite</div>
+          </div>
+          <div class="card-body">
+            <div class="block">
+              <h5>Detailed Essential Note</h5>
+              <p>
+                Graphics, reusable template, JS fallback, contact info, citation — advanced cases-এ এসব tags useful।
+              </p>
+            </div>
+            <div class="block">
+              <h5>When / Where to Use</h5>
+              <p>
+                SVG icons, JS app templates, contact page, article references-এ।
+              </p>
+            </div>
+            <div class="block">
+              <h5>Pro Tip / Common Mistake</h5>
+              <p>
+                Canvas ও SVG একই না — one is drawing surface, another is vector markup.
+              </p>
+            </div>
+            <div class="block">
+              <h5>Example</h5>
+              <pre><code>&lt;svg width="100" height="100"&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="red"&gt;&lt;/circle&gt;
+&lt;/svg&gt;</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    const cards = document.querySelectorAll(".searchable");
+    <section class="section" id="best-practices">
+      <div class="section-head">
+        <h3>Best Practices</h3>
+        <span class="badge advanced">Expert Habit</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="clean html semantic structure labels alt">
+          <div class="card-top">
+            <span class="priority green">Expert Habit</span>
+            <span class="usage most">Most Used</span>
+            <h4>27. Write Clean, Semantic HTML</h4>
+            <div class="mini">meaningful tags, readable structure</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>HTML expert শুধু tag জানে না, clean, logical, semantic structure লেখে।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>সব project-এ semantic and readable code maintain করা উচিত।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>সবকিছু div-এ ভরে ফেলো না। Semantic opportunity miss করো না।</p></div>
+            <div class="block"><h5>Example</h5><pre><code>&lt;section class="services"&gt;
+  &lt;h2&gt;Our Services&lt;/h2&gt;
+  &lt;p&gt;We build websites.&lt;/p&gt;
+&lt;/section&gt;</code></pre></div>
+          </div>
+        </div>
 
-    searchInput.addEventListener("input", function () {
-      const value = this.value.toLowerCase().trim();
+        <div class="card searchable" data-search="validate html proper nesting close tags">
+          <div class="card-top">
+            <span class="priority green">Expert Habit</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>28. Proper Nesting & Validation</h4>
+            <div class="mini">close tags properly, avoid invalid nesting</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>Wrong nesting, missing closing tag, invalid structure future bug create করতে পারে।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>সব HTML file লেখার সময় clean nesting maintain করো।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Browser অনেক error tolerate করে, তাই ভুল বোঝা যায় না। তাই validator use করা ভালো।</p></div>
+            <div class="block"><h5>Example</h5><pre><code>&lt;p&gt;Hello World&lt;/p&gt;</code></pre></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      cards.forEach(card => {
-        const text = card.getAttribute("data-search").toLowerCase();
-        if (text.includes(value)) {
-          card.classList.remove("hide");
-        } else {
-          card.classList.add("hide");
-        }
-      });
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h3>Practice Projects</h3>
+        <span class="badge important">Practice to Master</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="portfolio project html practice">
+          <div class="card-top">
+            <span class="priority yellow">Must Build</span>
+            <span class="usage most">Most Used</span>
+            <h4>29. Portfolio Website</h4>
+            <div class="mini">about, skills, projects, contact</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>Portfolio project করলে headings, image, links, semantic layout, form — সব একসাথে practice হবে।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>নিজের learning test করার জন্য best beginner-to-intermediate project।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Just section বানিয়ে শেষ করো না—clean semantic structure maintain করো।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="blog article project html">
+          <div class="card-top">
+            <span class="priority yellow">Great Practice</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>30. Blog / Article Page</h4>
+            <div class="mini">article, headings, time, figure</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>Content-heavy structure practice করতে blog page খুব useful।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>Article layout, semantic content grouping, publish date use case-এ।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Heading hierarchy ঠিক রাখো, image-এর caption দিলে figure/figcaption use করতে পারো।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="table project result report html">
+          <div class="card-top">
+            <span class="priority yellow">Useful Practice</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>31. Table Project</h4>
+            <div class="mini">results, schedule, pricing data</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>Tabular data structure practice করতে result বা pricing table build করো।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>Data presentation practice-এর জন্য।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Table layout design-এর জন্য না, real data-এর জন্য use করো।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="form project contact registration html">
+          <div class="card-top">
+            <span class="priority yellow">Must Build</span>
+            <span class="usage most">Most Used</span>
+            <h4>32. Form Project</h4>
+            <div class="mini">contact form, registration form</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><h5>Detailed Essential Note</h5><p>Form project করলে input types, labels, textarea, select, submission structure strong হবে।</p></div>
+            <div class="block"><h5>When / Where to Use</h5><p>Contact form, feedback form, signup page build করার সময়।</p></div>
+            <div class="block"><h5>Pro Tip / Common Mistake</h5><p>Placeholder থাকলেই field understandable হবে—এটা ধরে নিও না; label দাও।</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="interview">
+      <div class="section-head">
+        <h3>Interview Revision</h3>
+        <span class="badge advanced">Quick Recall</span>
+      </div>
+      <div class="grid">
+        <div class="card searchable" data-search="what is html interview">
+          <div class="card-top">
+            <span class="priority green">Basic Interview</span>
+            <span class="usage most">Most Used</span>
+            <h4>33. What is HTML?</h4>
+            <div class="mini">Definition</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><p>HTML = HyperText Markup Language. এটা webpage structure তৈরি করার markup language।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="semantic html interview why use semantic">
+          <div class="card-top">
+            <span class="priority green">Important Interview</span>
+            <span class="usage mid">Mid Use</span>
+            <h4>34. Why Semantic HTML?</h4>
+            <div class="mini">Meaning + SEO + accessibility</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><p>Semantic HTML content-এর meaning পরিষ্কার করে, SEO improve করে, accessibility better করে।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="id vs class interview html">
+          <div class="card-top">
+            <span class="priority green">Basic Interview</span>
+            <span class="usage most">Most Used</span>
+            <h4>35. id vs class</h4>
+            <div class="mini">unique vs reusable</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><p>id unique element-এর জন্য, class reusable multiple element-এর জন্য।</p></div>
+          </div>
+        </div>
+
+        <div class="card searchable" data-search="alt attribute interview accessibility seo">
+          <div class="card-top">
+            <span class="priority green">Important Interview</span>
+            <span class="usage most">Most Used</span>
+            <h4>36. Why alt attribute important?</h4>
+            <div class="mini">Accessibility + SEO</div>
+          </div>
+          <div class="card-body">
+            <div class="block"><p>Alt image describe করে, screen reader user-দের help করে, এবং SEO context improve করে।</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      HTML Master Dashboard Full Pro Version • Bangla Structured Expert Note
+    </div>
+  </main>
+</div>
+
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".searchable");
+
+  searchInput.addEventListener("input", function () {
+    const value = this.value.toLowerCase().trim();
+    cards.forEach(card => {
+      const text = card.getAttribute("data-search").toLowerCase();
+      if (text.includes(value)) {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
